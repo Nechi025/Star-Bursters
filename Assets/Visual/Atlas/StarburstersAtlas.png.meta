@@ -113,10 +113,10 @@ TextureImporter:
       name: ReconShip
       rect:
         serializedVersion: 2
-        x: 0
-        y: 668
-        width: 32
-        height: 32
+        x: 3
+        y: 672
+        width: 28
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +155,10 @@ TextureImporter:
       name: GhostShip
       rect:
         serializedVersion: 2
-        x: 32
-        y: 668
-        width: 32
-        height: 32
+        x: 35
+        y: 672
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: HealerShip
       rect:
         serializedVersion: 2
-        x: 64
-        y: 668
-        width: 32
-        height: 32
+        x: 65
+        y: 670
+        width: 30
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,7 +221,7 @@ TextureImporter:
         x: 96
         y: 668
         width: 32
-        height: 32
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,10 +239,10 @@ TextureImporter:
       name: SelfBomber
       rect:
         serializedVersion: 2
-        x: 128
-        y: 668
-        width: 32
-        height: 32
+        x: 129
+        y: 671
+        width: 30
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +260,10 @@ TextureImporter:
       name: DoubleShooter
       rect:
         serializedVersion: 2
-        x: 160
-        y: 668
-        width: 32
-        height: 32
+        x: 161
+        y: 670
+        width: 30
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,10 +281,10 @@ TextureImporter:
       name: LineShooter
       rect:
         serializedVersion: 2
-        x: 192
-        y: 668
-        width: 32
-        height: 32
+        x: 194
+        y: 670
+        width: 28
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,10 +344,10 @@ TextureImporter:
       name: EnemyVerticalShot
       rect:
         serializedVersion: 2
-        x: 160
-        y: 636
-        width: 32
-        height: 32
+        x: 172
+        y: 648
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -365,10 +365,10 @@ TextureImporter:
       name: EnemyShot
       rect:
         serializedVersion: 2
-        x: 192
-        y: 636
-        width: 32
-        height: 32
+        x: 206
+        y: 647
+        width: 4
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -386,9 +386,9 @@ TextureImporter:
       name: ReconLaser3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 12
         y: 636
-        width: 32
+        width: 8
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -407,9 +407,9 @@ TextureImporter:
       name: ReconLaser2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 13
         y: 604
-        width: 32
+        width: 6
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -428,9 +428,9 @@ TextureImporter:
       name: ReconLaser1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 14
         y: 572
-        width: 32
+        width: 4
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
