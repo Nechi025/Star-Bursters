@@ -155,3 +155,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a936df62077af44a3a4c2a775ce548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hrange: {x: -4.5, y: 4.5}
+  Vrange: {x: -8.4, y: 8.4}
