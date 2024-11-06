@@ -13,8 +13,6 @@ public class StraightShooter : Enemy
             foreach (var point in FiringPoints)
             {
                 GameObject bullet = Instantiate(BulletPrefab, point.position, point.rotation);
-                // Assuming the bullet script handles its own movement.
-                bullet.GetComponent<Bullet>().SetDirection(Vector2.up); // Adjust as needed
             }
         }
         else

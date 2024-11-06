@@ -113,8 +113,8 @@ TextureImporter:
       name: Button
       rect:
         serializedVersion: 2
-        x: 16
-        y: 94
+        x: 1
+        y: 109
         width: 64
         height: 18
       alignment: 0
@@ -664,7 +664,7 @@ TextureImporter:
         width: 2
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -672,6 +672,90 @@ TextureImporter:
       bones: []
       spriteID: 3a9b8b957df91d9498195b17b447f3de
       internalID: -1307027122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 93
+        width: 46
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a96b44928c31514c9d4bb0e50307677
+      internalID: -523133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Display
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 77
+        width: 79
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f6b99f2ad866445a992dee7a3c4fe5
+      internalID: 1873954827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeDisplay
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 95
+        width: 79
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7282bd333a9e413439cc4fb504b88b46
+      internalID: -1762439249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PictureDisplay
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 50
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a289fa4804c54049a0b4a605b54752b
+      internalID: 1651525331
       vertices: []
       indices: 
       edges: []
@@ -690,8 +774,10 @@ TextureImporter:
       A: -2060679754
       B: 1306105464
       Button: -59033707
+      Button2: -523133
       C: -349845004
       D: -764906656
+      Display: 1873954827
       E: 1158814911
       F: -1862970859
       G: -2137336821
@@ -700,10 +786,12 @@ TextureImporter:
       J: 729317469
       K: 54903706
       L: -1579168760
+      LargeDisplay: -1762439249
       M: -437719890
       N: -978882548
       O: -383558699
       P: 1066125110
+      PictureDisplay: 1651525331
       Q: 1557769655
       R: -1729391874
       S: -64426834
