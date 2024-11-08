@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -19,13 +19,16 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Update()
     {
         MoveAlongPath();
-
-
-        if (Time.time >= nextAttackTime && !isAttacking)
+        if (PhotonNetwork.IsMasterClient)
         {
-            StartCoroutine(AttackBurst());
-            nextAttackTime = Time.time + AttackInterval;
+            if (Time.time >= nextAttackTime && !isAttacking)
+            {
+                StartCoroutine(AttackBurst());
+                nextAttackTime = Time.time + AttackInterval;
+            }
         }
+
+        
 
         if (Health <= 0)
         {
@@ -53,7 +56,7 @@ public abstract class Enemy : MonoBehaviour
     {
         Bullet bullet = collision.GetComponent<Bullet>();
 
-        if (bullet != null)
+        if (bullet != null && !bullet.CompareTag("EnemyShot"))
         {
             Health -= bullet.damage;
             Destroy(bullet.gameObject);

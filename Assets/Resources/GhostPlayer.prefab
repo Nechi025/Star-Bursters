@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 1155734670977398512}
   - component: {fileID: -2619646869388060805}
   - component: {fileID: 3001196450469070626}
+  - component: {fileID: -1542010604743445940}
   m_Layer: 0
   m_Name: GhostPlayer
   m_TagString: Untagged
@@ -306,12 +307,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a936df62077af44a3a4c2a775ce548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 100
   Hrange: {x: -4.5, y: 4.5}
   Vrange: {x: -8.4, y: 8.4}
   bullet: {fileID: 4232508172308764363, guid: eae953379a072de499ff0fcc69644d4f, type: 3}
+  attackCooldown: 0.2
   FiringPoints:
   - {fileID: 3555729870027733175}
   - {fileID: 46546958959093458}
+--- !u!61 &-1542010604743445940
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5210399374959836815}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0023095608, y: -0.008083463}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.81523585, y: 0.8221643}
+  m_EdgeRadius: 0
 --- !u!1 &5567577294957183086
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,9 +6,12 @@ using Photon.Pun;
 public class PlayerController : MonoBehaviour
 {
     private PhotonView pv;
+    public float Health;
     public Vector2 Hrange = Vector2.zero;
     public Vector2 Vrange = Vector2.zero;
     public Bullet bullet;
+    public float attackCooldown;
+    float timeNextShoot = 0;
     public List<Transform> FiringPoints;
 
 
@@ -37,10 +40,17 @@ public class PlayerController : MonoBehaviour
             {
                 transform.position += Vector3.right * 5 * Time.deltaTime;
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) && Time.time >= timeNextShoot)
             {
                 Shoot();
+                timeNextShoot = Time.time + attackCooldown;
             }
+        }
+
+
+        if (Health <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 
@@ -60,7 +70,18 @@ public class PlayerController : MonoBehaviour
             GameObject go = PhotonNetwork.Instantiate(bullet.name, point.position, point.rotation);
         }
     }
-        
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        Bullet bullet = collision.GetComponent<Bullet>();
+
+        if (bullet != null && bullet.CompareTag("EnemyShot"))
+        {
+            Health -= bullet.damage;
+            Destroy(bullet.gameObject);
+        }
+    }
+
     /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
