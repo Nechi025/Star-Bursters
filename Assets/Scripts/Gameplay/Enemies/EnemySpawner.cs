@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] float timeToStartSpawning;
     [SerializeField] float timeBetweenSpawning;
+    [SerializeField] StraightShooterFactory factory;
 
     bool readyToSpawn;
     float timer;
@@ -33,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
                 if (readyToSpawn && timer > timeBetweenSpawning)
                 {
                     timer = 0;
-                    PhotonNetwork.Instantiate(enemyPrefab.name, new Vector2(Random.Range(-4, 4), Random.Range(-4, 4)), Quaternion.identity);
+                    factory.CreateEnemy();
                 }
             }
         }

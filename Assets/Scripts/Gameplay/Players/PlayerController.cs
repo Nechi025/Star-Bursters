@@ -8,18 +8,13 @@ public class PlayerController : MonoBehaviour
     private PhotonView pv;
     public Vector2 Hrange = Vector2.zero;
     public Vector2 Vrange = Vector2.zero;
-    //private Camera camera;
+    public Bullet bullet;
+    public List<Transform> FiringPoints;
 
 
     private void Awake()
     {
         pv = GetComponent<PhotonView>();
-        //camera = GetComponentInChildren<Camera>();
-    }
-
-    private void Start()
-    {
-        //camera.gameObject.SetActive(pv.IsMine);
     }
 
     private void Update()
@@ -42,6 +37,10 @@ public class PlayerController : MonoBehaviour
             {
                 transform.position += Vector3.right * 5 * Time.deltaTime;
             }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Shoot();
+            }
         }
     }
 
@@ -53,6 +52,15 @@ public class PlayerController : MonoBehaviour
             transform.position.z
             );
     }
+
+    public void Shoot()
+    {
+        foreach (var point in FiringPoints)
+        {
+            GameObject go = PhotonNetwork.Instantiate(bullet.name, point.position, point.rotation);
+        }
+    }
+        
     /*
     private void OnTriggerEnter2D(Collider2D collision)
     {

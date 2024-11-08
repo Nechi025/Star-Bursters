@@ -308,6 +308,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hrange: {x: -4.5, y: 4.5}
   Vrange: {x: -8.4, y: 8.4}
+  bullet: {fileID: 4232508172308764363, guid: eae953379a072de499ff0fcc69644d4f, type: 3}
+  FiringPoints:
+  - {fileID: 3555729870027733175}
+  - {fileID: 46546958959093458}
 --- !u!1 &5567577294957183086
 GameObject:
   m_ObjectHideFlags: 0

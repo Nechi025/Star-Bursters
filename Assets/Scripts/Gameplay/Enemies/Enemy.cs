@@ -26,6 +26,11 @@ public abstract class Enemy : MonoBehaviour
             StartCoroutine(AttackBurst());
             nextAttackTime = Time.time + AttackInterval;
         }
+
+        if (Health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     protected void MoveAlongPath()
@@ -41,6 +46,17 @@ public abstract class Enemy : MonoBehaviour
             {
                 PathPoints.RemoveAt(0);
             }
+        }
+    }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        Bullet bullet = collision.GetComponent<Bullet>();
+
+        if (bullet != null)
+        {
+            Health -= bullet.damage;
+            Destroy(bullet.gameObject);
         }
     }
 

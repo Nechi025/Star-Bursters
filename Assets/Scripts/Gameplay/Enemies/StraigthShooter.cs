@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class StraightShooter : Enemy
 {
@@ -12,7 +13,7 @@ public class StraightShooter : Enemy
         {
             foreach (var point in FiringPoints)
             {
-                GameObject bullet = Instantiate(BulletPrefab, point.position, point.rotation);
+                GameObject bullet = PhotonNetwork.Instantiate(BulletPrefab.name, point.position, point.rotation);
             }
         }
         else
