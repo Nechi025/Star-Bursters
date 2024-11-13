@@ -12,7 +12,7 @@ public abstract class Enemy : MonoBehaviour
     public List<Transform> PathPoints;
     public List<Transform> FiringPoints;
     public int AttackAmount;
-
+    protected int currentTargetIndex = 0;
     protected float nextAttackTime;
     private bool isAttacking;
 
@@ -38,18 +38,29 @@ public abstract class Enemy : MonoBehaviour
 
     protected void MoveAlongPath()
     {
+
         if (PathPoints != null && PathPoints.Count > 0)
         {
-            Transform targetPoint = PathPoints[0];
+
+            Transform targetPoint = PathPoints[currentTargetIndex];
             float step = Speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, step);
 
-            
             if (Vector3.Distance(transform.position, targetPoint.position) < 0.1f)
+
             {
-                PathPoints.RemoveAt(0);
+
+                currentTargetIndex++;
+
+                if (currentTargetIndex >= PathPoints.Count)
+                {
+                    currentTargetIndex = 0;
+                }
+
             }
+
         }
+
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)

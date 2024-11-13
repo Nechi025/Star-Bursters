@@ -5,30 +5,45 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int damage;
-    public Vector2 direction;
     public float speed;
-    public Vector2 velocity;
+    public List<Transform> PathPoints; 
+    private int currentTargetIndex = 0;
 
     void Update()
     {
-        velocity = direction * speed;
+        MoveAlongPath();
     }
 
-    private void FixedUpdate()
+    private void MoveAlongPath()
     {
-        Vector2 pos = transform.position;
+        if (PathPoints == null || PathPoints.Count == 0) return;
+        Transform targetPoint = PathPoints[currentTargetIndex];
+        Vector3 direction = (targetPoint.position - transform.position).normalized;
+        transform.position += direction * speed * Time.deltaTime;
 
-        pos += velocity * Time.fixedDeltaTime;
 
-        transform.position = pos;
+        if (Vector3.Distance(transform.position, targetPoint.position) < 0.1f)
+        {
+            currentTargetIndex++;
+
+            if (currentTargetIndex >= PathPoints.Count)
+            {
+                Destroy(gameObject);
+            }
+
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.CompareTag("BulletDestroy"))
         {
             Destroy(this.gameObject);
         }
+
     }
 }
+
 
