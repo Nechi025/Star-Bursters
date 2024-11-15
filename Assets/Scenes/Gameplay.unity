@@ -940,7 +940,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9993da5e3839b53409a718c8c015ccf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 5210399374959836815, guid: 40fb7a31f0090d141a6318754fd1eddd, type: 3}
+  ghostPrefab: {fileID: 5210399374959836815, guid: 40fb7a31f0090d141a6318754fd1eddd, type: 3}
+  healerPrefab: {fileID: 6344394634002357534, guid: bb73e04298356c34980e48fc6f09d693, type: 3}
+  tankPrefab: {fileID: 1748950973513389782, guid: 2d70c84bfeefeb64988acee2fa4a76f4, type: 3}
+  reconPrefab: {fileID: 6440314903118512024, guid: 0d6492f31a6602648be08041fe42261e, type: 3}
 --- !u!4 &432930135
 Transform:
   m_ObjectHideFlags: 0
@@ -2899,7 +2902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1345649995
 MonoBehaviour:
   m_ObjectHideFlags: 0

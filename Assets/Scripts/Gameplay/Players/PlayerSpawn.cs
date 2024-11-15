@@ -2,9 +2,21 @@ using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum characters
+{
+    ghost,
+    healer,
+    tank,
+    recon
+}
+
+
 public class PlayerSpawn : MonoBehaviour
 {
-    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private GameObject ghostPrefab;
+    [SerializeField] private GameObject healerPrefab;
+    [SerializeField] private GameObject tankPrefab;
+    [SerializeField] private GameObject reconPrefab;
 
     private GameObject player;
     private PhotonView pv;
@@ -16,7 +28,7 @@ public class PlayerSpawn : MonoBehaviour
 
     private void Start()
     {
-        player = PhotonNetwork.Instantiate(playerPrefab.name,
+        player = PhotonNetwork.Instantiate(ghostPrefab.name,
                             new Vector2(Random.Range(-4, 4), Random.Range(-4, -2)),
                             Quaternion.identity);
 
