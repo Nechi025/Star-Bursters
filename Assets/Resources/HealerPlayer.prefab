@@ -382,8 +382,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.35
-  m_PreviewTimeScale: 0.16
+  m_Time: 0.25
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.12473442
@@ -391,8 +391,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.17776795
-        value: 0.38399994
+        time: 0.05121155
+        value: 0.5649997
         inSlope: -0.07714301
         outSlope: -0.07714301
         tangentMode: 0
@@ -400,8 +400,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.13429257
       - serializedVersion: 3
-        time: 1
-        value: 0.124000005
+        time: 0.5124512
+        value: 0
         inSlope: -0.43200004
         outSlope: -0.43200004
         tangentMode: 0
@@ -562,7 +562,7 @@ MonoBehaviour:
   Hrange: {x: -4.5, y: 4.5}
   Vrange: {x: -8.4, y: 8.4}
   bullet: {fileID: 4389822798063132423, guid: 72b6910ff7d8df24a9cf3df6c17627cd, type: 3}
-  attackCooldown: 0.6
+  attackCooldown: 0.4
   FiringPoints:
   - {fileID: 6100107585932698843}
 --- !u!61 &6292065585096993549

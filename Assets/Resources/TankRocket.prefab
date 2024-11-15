@@ -161,7 +161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   speed: 15
-  PathPoints: []
+  PathPoints:
+  - {fileID: 6615135136513749967}
 --- !u!70 &5710297080904012635
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -298,8 +299,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.35
-  m_PreviewTimeScale: 0.16
+  m_Time: 0.15
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.12473442
@@ -307,8 +308,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.17776795
-        value: 0.38399994
+        time: 0.059512332
+        value: 0.4337741
         inSlope: -0.07714301
         outSlope: -0.07714301
         tangentMode: 0
@@ -316,8 +317,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.13429257
       - serializedVersion: 3
-        time: 1
-        value: 0.124000005
+        time: 0.4439824
+        value: 0
         inSlope: -0.43200004
         outSlope: -0.43200004
         tangentMode: 0
@@ -394,7 +395,7 @@ Transform:
   m_GameObject: {fileID: 7939797127486613820}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0074505806, y: 0.39215422, z: 0}
+  m_LocalPosition: {x: -0.0074505806, y: 0.47215423, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 216721841837744867}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.44, y: -0.44, z: 0}
+  m_LocalPosition: {x: -0.32, y: -0.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74,8 +74,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.35
-  m_PreviewTimeScale: 0.16
+  m_Time: 0.12
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.12473442
@@ -83,8 +83,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.17776795
-        value: 0.38399994
+        time: 0
+        value: 1
         inSlope: -0.07714301
         outSlope: -0.07714301
         tangentMode: 0
@@ -92,13 +92,13 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.13429257
       - serializedVersion: 3
-        time: 1
-        value: 0.124000005
-        inSlope: -0.43200004
-        outSlope: -0.43200004
+        time: 0.59126896
+        value: 0
+        inSlope: -3.9594061
+        outSlope: -3.9594061
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.111111104
+        inWeight: 0.095717914
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -263,8 +263,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2662634125523502939}
-  - {fileID: 713019727322892272}
   - {fileID: 1444858350360216285}
+  - {fileID: 2063928352832110976}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-1002179770973630219
@@ -505,7 +505,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &8751034639883078961
+--- !u!1 &5742717255929142448
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -513,8 +513,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 713019727322892272}
-  - component: {fileID: 8806676087261344847}
+  - component: {fileID: 2063928352832110976}
+  - component: {fileID: 455247312589200738}
   m_Layer: 0
   m_Name: TrailMaker (2)
   m_TagString: Untagged
@@ -522,29 +522,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &713019727322892272
+--- !u!4 &2063928352832110976
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8751034639883078961}
+  m_GameObject: {fileID: 5742717255929142448}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.44, y: -0.44, z: 0}
+  m_LocalPosition: {x: 0.32, y: -0.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6463710460940958744}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!96 &8806676087261344847
+--- !u!96 &455247312589200738
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8751034639883078961}
+  m_GameObject: {fileID: 5742717255929142448}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -579,8 +579,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.35
-  m_PreviewTimeScale: 0.16
+  m_Time: 0.12
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.12473442
@@ -588,8 +588,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.17776795
-        value: 0.38399994
+        time: 0
+        value: 1
         inSlope: -0.07714301
         outSlope: -0.07714301
         tangentMode: 0
@@ -597,13 +597,13 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.13429257
       - serializedVersion: 3
-        time: 1
-        value: 0.124000005
-        inSlope: -0.43200004
-        outSlope: -0.43200004
+        time: 0.59126896
+        value: 0
+        inSlope: -3.9594061
+        outSlope: -3.9594061
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.111111104
+        inWeight: 0.095717914
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2

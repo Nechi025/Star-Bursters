@@ -3,15 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+[System.Serializable]
+public class Wave
+{
+    public List<EnemyConfig> enemies;
+    public float timeBetweenEnemies;
+}
+
+[System.Serializable]
+public class EnemyConfig
+{
+    public StraightShooterFactory factory;
+    public int amount;                    
+}
+
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject enemyPrefab;
-    [SerializeField] float timeToStartSpawning;
-    [SerializeField] float timeBetweenSpawning;
-    [SerializeField] StraightShooterFactory factory;
+    [SerializeField] List<Wave> waves;     
+    [SerializeField] Wave bonusWave;         
+    [SerializeField] float timeBetweenWaves;   
+    [SerializeField] float timeToStartSpawning; 
 
-    bool readyToSpawn;
-    float timer;
+    private float timer;
+    private int waveCount = 0; 
+    private bool spawningWave = false;
 
     private void Start()
     {
@@ -20,23 +35,45 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= 1)
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= 1 && PhotonNetwork.IsMasterClient)
         {
-            if (PhotonNetwork.IsMasterClient)
+            timer += Time.deltaTime;
+
+            if (!spawningWave && timer >= timeToStartSpawning)
             {
-                timer += Time.deltaTime;
-                if (timeToStartSpawning < timer)
+                if (waveCount == 9)
                 {
-                    readyToSpawn = true;
-                    timer = 0;
+                
+                    StartCoroutine(SpawnWave(bonusWave));
+                    waveCount = 0;
+                }
+                else
+                {
+                   
+                    int randomWaveIndex = Random.Range(0, waves.Count);
+                    StartCoroutine(SpawnWave(waves[randomWaveIndex]));
+                    waveCount++;
                 }
 
-                if (readyToSpawn && timer > timeBetweenSpawning)
-                {
-                    timer = 0;
-                    factory.CreateEnemy();
-                }
+                timer = 0;
             }
         }
+    }
+
+    private IEnumerator SpawnWave(Wave wave)
+    {
+        spawningWave = true;
+
+        foreach (var enemyConfig in wave.enemies)
+        {
+            for (int i = 0; i < enemyConfig.amount; i++)
+            {
+                enemyConfig.factory.CreateEnemy();
+                yield return new WaitForSeconds(wave.timeBetweenEnemies);
+            }
+        }
+
+        yield return new WaitForSeconds(timeBetweenWaves);
+        spawningWave = false;
     }
 }

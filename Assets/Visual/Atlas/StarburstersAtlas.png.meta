@@ -488,13 +488,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GhostAttcakBuff
+      name: GhostAttackBuff
       rect:
         serializedVersion: 2
         x: 208
         y: 547
         width: 80
-        height: 9
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -613,6 +613,153 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: GhostSpeedStart1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 409
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d477762c26c45b488514b5fe98af4b5
+      internalID: -548892912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostSpeedStart2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 316
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d746d1c7bc6d32b4c9dff3491dc5669d
+      internalID: -1460390609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostBuff1
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 531
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45dafd0006977ce409f797003af0b303
+      internalID: 1152024791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostBuff2
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 515
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e437c3e86dfefee4bab1f4dc1e98b951
+      internalID: 501078766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostBuff3
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 499
+        width: 44
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff2b0c784058604186a4f7c06068147
+      internalID: 1411613322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostBuff4
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 483
+        width: 56
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4992160b904b52c46aa4754cf42db362
+      internalID: 1226881804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TankSmallShield
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 525
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f437c1b5b1d1d224da1629bf8b422ff6
+      internalID: -1229247959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -628,10 +775,16 @@ TextureImporter:
       EnemyBullet: 1081356317
       EnemyShot: -1552530331
       EnemyVerticalShot: 651115322
-      GhostAttcakBuff: -1757465745
+      GhostAttackBuff: -1757465745
+      GhostBuff1: 1152024791
+      GhostBuff2: 501078766
+      GhostBuff3: 1411613322
+      GhostBuff4: 1226881804
       GhostDowned: -1127753756
       GhostShip: 2123481429
       GhostShot: -1434196027
+      GhostSpeedStart1: -548892912
+      GhostSpeedStart2: -1460390609
       GhostSpeedZone: -607445323
       HealerAura: 1982799291
       HealerDowned: -1714030774
@@ -648,6 +801,7 @@ TextureImporter:
       TankRocket: 436172863
       TankShield: -472676571
       TankShip: 217574338
+      TankSmallShield: -1229247959
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

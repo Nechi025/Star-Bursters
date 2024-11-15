@@ -197,7 +197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9993da5e3839b53409a718c8c015ccf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 6943670680898692432, guid: e82b9c4608970c347bb87d0303159c11, type: 3}
+  ghostPrefab: {fileID: 0}
+  healerPrefab: {fileID: 0}
+  tankPrefab: {fileID: 0}
+  reconPrefab: {fileID: 0}
 --- !u!4 &432930135
 Transform:
   m_ObjectHideFlags: 0
@@ -587,6 +590,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1002179770973630219, guid: 2d70c84bfeefeb64988acee2fa4a76f4, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1748950973513389782, guid: 2d70c84bfeefeb64988acee2fa4a76f4, type: 3}
       propertyPath: m_Name
       value: TankPlayer
@@ -805,6 +812,10 @@ PrefabInstance:
     - target: {fileID: 1331921377181812179, guid: bb73e04298356c34980e48fc6f09d693, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725575285221769479, guid: bb73e04298356c34980e48fc6f09d693, type: 3}
+      propertyPath: sceneViewId
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6344394634002357534, guid: bb73e04298356c34980e48fc6f09d693, type: 3}
       propertyPath: m_Name

@@ -685,7 +685,7 @@ TextureImporter:
         width: 46
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -706,7 +706,7 @@ TextureImporter:
         width: 79
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -727,7 +727,7 @@ TextureImporter:
         width: 79
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -748,7 +748,7 @@ TextureImporter:
         width: 34
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -756,6 +756,111 @@ TextureImporter:
       bones: []
       spriteID: 7a289fa4804c54049a0b4a605b54752b
       internalID: 1651525331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthBar
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 50
+        width: 92
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ca13a21f5ddd046bd4114fc524128a
+      internalID: -1225020862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Healer
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 66
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c01cfb1edc5c8684ba12f79b6ebcf76f
+      internalID: -81059240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 66
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b244635f65e7a44825b28123068aa6
+      internalID: -389100076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DPS
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 51
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98c91a87ecfa8f4458819728734bcc53
+      internalID: 1394662661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recon
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 50
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 345ffc52883ffbe40b42525ca1ab1b89
+      internalID: -180753171
       vertices: []
       indices: 
       edges: []
@@ -777,11 +882,14 @@ TextureImporter:
       Button2: -523133
       C: -349845004
       D: -764906656
+      DPS: 1394662661
       Display: 1873954827
       E: 1158814911
       F: -1862970859
       G: -2137336821
       H: 458871465
+      Healer: -81059240
+      HealthBar: -1225020862
       I: -1307027122
       J: 729317469
       K: 54903706
@@ -794,8 +902,10 @@ TextureImporter:
       PictureDisplay: 1651525331
       Q: 1557769655
       R: -1729391874
+      Recon: -180753171
       S: -64426834
       T: -783917452
+      Tank: -389100076
       U: 164061205
       V: 1652964022
       W: -729944756
