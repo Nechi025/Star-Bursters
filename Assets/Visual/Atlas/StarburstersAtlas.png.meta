@@ -282,9 +282,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 194
-        y: 670
+        y: 669
         width: 28
-        height: 28
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -622,7 +622,7 @@ TextureImporter:
         width: 54
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -643,7 +643,7 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -664,7 +664,7 @@ TextureImporter:
         width: 12
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -685,7 +685,7 @@ TextureImporter:
         width: 24
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -706,7 +706,7 @@ TextureImporter:
         width: 44
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -727,7 +727,7 @@ TextureImporter:
         width: 56
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -748,7 +748,7 @@ TextureImporter:
         width: 24
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -756,6 +756,48 @@ TextureImporter:
       bones: []
       spriteID: f437c1b5b1d1d224da1629bf8b422ff6
       internalID: -1229247959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurstShooter
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 669
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1025b1276be30246ba6976e717eaff0
+      internalID: -689365240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TankShooter
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 668
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2af0890cdef1449428342812ecb75080
+      internalID: -934365797
       vertices: []
       indices: 
       edges: []
@@ -771,6 +813,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BurstShooter: 2135274741
       DoubleShooter: 31385096
       EnemyBullet: 1081356317
       EnemyShot: -1552530331
@@ -801,6 +844,7 @@ TextureImporter:
       TankRocket: 436172863
       TankShield: -472676571
       TankShip: 217574338
+      TankShooter: -934365797
       TankSmallShield: -1229247959
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

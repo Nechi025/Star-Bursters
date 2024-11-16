@@ -15,7 +15,7 @@ public abstract class Enemy : MonoBehaviour
     protected int currentTargetIndex = 0;
     protected float nextAttackTime;
     private bool isAttacking;
-
+    public float RotationSpeed = 180f;
     protected virtual void Update()
     {
         MoveAlongPath();
@@ -38,30 +38,30 @@ public abstract class Enemy : MonoBehaviour
 
     protected void MoveAlongPath()
     {
-
         if (PathPoints != null && PathPoints.Count > 0)
         {
-
             Transform targetPoint = PathPoints[currentTargetIndex];
             float step = Speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, step);
 
+            float targetRotation = targetPoint.eulerAngles.z;
+            float newRotation = Mathf.MoveTowardsAngle(transform.eulerAngles.z, targetRotation, RotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(0, 0, newRotation);
+
+
             if (Vector3.Distance(transform.position, targetPoint.position) < 0.1f)
-
             {
-
                 currentTargetIndex++;
 
+         
                 if (currentTargetIndex >= PathPoints.Count)
                 {
                     currentTargetIndex = 0;
                 }
-
             }
-
         }
-
     }
+
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
