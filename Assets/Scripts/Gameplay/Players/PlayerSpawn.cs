@@ -26,25 +26,19 @@ public class PlayerSpawn : MonoBehaviour
         pv = GetComponent<PhotonView>();
     }
 
-    private void Start()
+    public void SpawnCharacter(characters selectedCharacter)
     {
-        player = PhotonNetwork.Instantiate(ghostPrefab.name,
+        GameObject prefabToSpawn = selectedCharacter switch
+        {
+            characters.ghost => ghostPrefab,
+            characters.healer => healerPrefab,
+            characters.tank => tankPrefab,
+            characters.recon => reconPrefab,
+            _ => ghostPrefab // Valor por defecto si algo falla
+        };
+
+        player = PhotonNetwork.Instantiate(prefabToSpawn.name,
                             new Vector2(Random.Range(-4, 4), Random.Range(-4, -2)),
                             Quaternion.identity);
-
-        int playerIndex = PhotonNetwork.PlayerList.Length;
-
-        //pv.RPC("ChangeColor", RpcTarget.AllBuffered, player.GetComponent<PhotonView>().ViewID, playerIndex);
-    }
-
-    [PunRPC]
-    private void ChangeColor(int playerViewID, int playerIndex)
-    {
-        PhotonView targetPhotonView = PhotonView.Find(playerViewID);
-
-        if (targetPhotonView != null)
-        {
-            targetPhotonView.gameObject.GetComponent<SpriteRenderer>().color = (playerIndex == 1) ? Color.red : Color.blue;
-        }
     }
 }

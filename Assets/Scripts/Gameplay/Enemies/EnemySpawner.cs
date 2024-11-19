@@ -27,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
     private float timer;
     private int waveCount = 0; 
     private bool spawningWave = false;
+    public bool gameStart = false;
 
     private void Start()
     {
@@ -35,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= 1 && PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= 2 && PhotonNetwork.IsMasterClient && gameStart)
         {
             timer += Time.deltaTime;
 
