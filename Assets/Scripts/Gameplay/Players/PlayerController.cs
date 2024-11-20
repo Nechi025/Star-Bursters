@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IHealable
 {
     private PhotonView pv;
+    private float maxHealth;
     public float Health;
     public Vector2 Hrange = Vector2.zero;
     public Vector2 Vrange = Vector2.zero;
@@ -13,11 +14,19 @@ public class PlayerController : MonoBehaviour
     public float attackCooldown;
     float timeNextShoot = 0;
     public List<Transform> FiringPoints;
-
+    [SerializeField] GameObject abilitie;
+    private float cdAbilitie = 0f; // Tiempo restante para que la habilidad se pueda usar
+    [SerializeField] float abilitieCooldown = 0; // Duración total del cooldown
+    [SerializeField] float abilitieDuration = 0;
 
     private void Awake()
     {
         pv = GetComponent<PhotonView>();
+    }
+
+    private void Start()
+    {
+        maxHealth = Health;
     }
 
     private void Update()
@@ -45,6 +54,17 @@ public class PlayerController : MonoBehaviour
                 Shoot();
                 timeNextShoot = Time.time + attackCooldown;
             }
+            if (Input.GetKeyDown(KeyCode.E) && cdAbilitie <= 0f)
+            {
+                pv.RPC("UseAbilitie", RpcTarget.All);
+                cdAbilitie = abilitieCooldown;
+            }
+
+            // Actualiza el cooldown
+            if (cdAbilitie > 0f)
+            {
+                cdAbilitie -= Time.deltaTime; // Reduce el tiempo restante del cooldown
+            }
         }
 
 
@@ -56,6 +76,7 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
+        //Limites del mapa
         transform.position = new Vector3(
             Mathf.Clamp(transform.position.x, Vrange.x, Vrange.y),
             Mathf.Clamp(transform.position.y, Hrange.x, Hrange.y),
@@ -82,24 +103,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*
-    private void OnTriggerEnter2D(Collider2D collision)
+    [PunRPC]
+    private void UseAbilitie()
     {
-        if (pv.IsMine && collision.transform.CompareTag("Coin"))
+        abilitie.SetActive(true);
+
+        StartCoroutine(DestroyAfterTime(abilitie, abilitieDuration));
+    }
+
+    private IEnumerator DestroyAfterTime(GameObject obj, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        if (obj != null)
         {
-            PhotonView photonView = PhotonView.Get(this);
-            photonView.RPC("CollectCoin", RpcTarget.AllBuffered, collision.gameObject.GetComponent<PhotonView>().ViewID);
+            obj.SetActive(false); // Destruir el objeto de la habilidad
         }
     }
 
-    [PunRPC]
-    void CollectCoin(int coinViewID)
+    public void Heal(int amount)
     {
-        PhotonView coinPhotonView = PhotonView.Find(coinViewID);
-        if (coinPhotonView != null)
-        {
-            PhotonNetwork.Destroy(coinPhotonView.gameObject);
-            GameManager.instance.AddCoinToPool();
-        }
-    }*/
+        Health += amount;
+        Health = Mathf.Min(Health, maxHealth); // Limitar a la salud máxima
+        Debug.Log($"Jugador curado. Salud actual: {Health}");
+    }
 }

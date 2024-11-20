@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 4341157103354748165}
   - component: {fileID: 5316882228784362126}
   - component: {fileID: 4911656943957929922}
+  - component: {fileID: 5791724937930373006}
   m_Layer: 0
   m_Name: HealerPlasma
   m_TagString: Untagged
@@ -135,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   speed: 7
+  isEnemy: 0
   PathPoints:
   - {fileID: 505486523403874521}
 --- !u!114 &6588818614234843007
@@ -255,3 +257,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5791724937930373006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588416304892522525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 798fcaf7f0ab89045b52d9e2af715bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healingAmount: 20

@@ -236,6 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   speed: 5
+  isEnemy: 1
   PathPoints:
   - {fileID: 8422957447153036183}
 --- !u!50 &2896691397605435126

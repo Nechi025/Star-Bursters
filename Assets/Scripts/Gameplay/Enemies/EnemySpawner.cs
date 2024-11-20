@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= 2 && PhotonNetwork.IsMasterClient && gameStart)
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= 1 && PhotonNetwork.IsMasterClient && gameStart)
         {
             timer += Time.deltaTime;
 

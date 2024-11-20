@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public int damage;
     public float speed;
+    public bool isEnemy = false;
     public List<Transform> PathPoints; 
     private int currentTargetIndex = 0;
 
@@ -43,6 +44,10 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        if (collision.gameObject.CompareTag("BulletEnemyDestroy") && isEnemy)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
 
