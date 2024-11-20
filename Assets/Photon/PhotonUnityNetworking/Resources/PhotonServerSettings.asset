@@ -42,6 +42,10 @@ MonoBehaviour:
   - ChangeColor
   - ConfirmSelection
   - BeginGame
+  - DeselectCharacter
+  - SelectCharacter
+  - DeselectButton
+  - SelectButton
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
