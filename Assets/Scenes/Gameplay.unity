@@ -3576,6 +3576,7 @@ GameObject:
   - component: {fileID: 1343162091}
   - component: {fileID: 1343162093}
   - component: {fileID: 1343162092}
+  - component: {fileID: 1343162094}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -3686,9 +3687,9 @@ MonoBehaviour:
     timeBetweenEnemies: 4
   bonusWave:
     enemies:
-    - factory: {fileID: 1343162090}
-      amount: 1
-    timeBetweenEnemies: 1
+    - factory: {fileID: 1343162094}
+      amount: 5
+    timeBetweenEnemies: 4
   timeBetweenWaves: 7
   timeToStartSpawning: 5
   gameStart: 0
@@ -3759,6 +3760,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 9222217600572882341, guid: 673b4e2f93033774eaab1948db4da626, type: 3}
+--- !u!114 &1343162094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343162087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f88e03afea546548b7d06e313119ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 9222217600572882341, guid: d1923b1e3c67c974a8141c3903d84e55, type: 3}
 --- !u!1 &1345649994
 GameObject:
   m_ObjectHideFlags: 0

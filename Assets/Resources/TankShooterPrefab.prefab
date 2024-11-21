@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 300
-  Speed: 1
+  Speed: 0.75
   AttackSpeed: 1
   AttackInterval: 2
   PathPoints:

@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
 
             if (!spawningWave && timer >= timeToStartSpawning)
             {
-                if (waveCount == 9)
+                if (waveCount == 2)
                 {
                 
                     StartCoroutine(SpawnWave(bonusWave));

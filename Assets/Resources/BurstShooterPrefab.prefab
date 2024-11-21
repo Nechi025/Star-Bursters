@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
-  Speed: 1
+  Speed: 2
   AttackSpeed: 0.15
   AttackInterval: 4
   PathPoints:
