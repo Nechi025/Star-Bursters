@@ -802,6 +802,111 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Gemstone
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 671
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5cb71a4fb2774f4f9809605f15189a7
+      internalID: -1497132158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GemShot
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 646
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df46ef3e211c2249861fdd6e61cfec6
+      internalID: -1073055093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReconNoCharge
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 576
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a1aff0e3c9e4404e9f97bfce5d1985e
+      internalID: -94531076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReconChargeStart
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 576
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8113203cb9a070846ace2e17ae083256
+      internalID: -1031938425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recon2Charge
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 576
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f9583a28af639242acff871507ebded
+      internalID: 405626595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -818,6 +923,8 @@ TextureImporter:
       EnemyBullet: 1081356317
       EnemyShot: -1552530331
       EnemyVerticalShot: 651115322
+      GemShot: -1073055093
+      Gemstone: -1497132158
       GhostAttackBuff: -1757465745
       GhostBuff1: 1152024791
       GhostBuff2: 501078766
@@ -834,10 +941,13 @@ TextureImporter:
       HealerPlasma: -210239081
       HealerShip: -712578001
       LineShooter: -1223295655
+      Recon2Charge: 405626595
+      ReconChargeStart: -1031938425
       ReconDowned: -1039303175
       ReconLaser1: 1395774435
       ReconLaser2: 467496561
       ReconLaser3: 277979272
+      ReconNoCharge: -94531076
       ReconShip: -2122618485
       SelfBomber: -85455259
       TankDowned: -1458688648
