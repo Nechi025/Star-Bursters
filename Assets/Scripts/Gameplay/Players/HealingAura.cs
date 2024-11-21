@@ -6,17 +6,29 @@ public class HealingAura : MonoBehaviour
 {
     public class HealingArea : MonoBehaviour
     {
-        [SerializeField] int healingAmount = 5; // Cantidad de curación por ciclo
-        [SerializeField] float healingInterval = 1f; // Intervalo en segundos entre curaciones
+        [SerializeField] int healingAmount = 5; //Cantidad de curación por ciclo
+        [SerializeField] float healingInterval = 1f; //Intervalo en segundos entre curaciones
 
         private Coroutine healingCoroutine;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            Debug.Log("Te toque");
             IHealable healable = collision.GetComponent<IHealable>();
             if (healable != null)
             {
-                // Inicia la curación constante
+                //Inicia la curación constante
+                healingCoroutine = StartCoroutine(HealOverTime(healable));
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            Debug.Log("Te toque por colision");
+            IHealable healable = collision.gameObject.GetComponent<IHealable>();
+            if (healable != null)
+            {
+                //Inicia la curación constante
                 healingCoroutine = StartCoroutine(HealOverTime(healable));
             }
         }
@@ -26,7 +38,7 @@ public class HealingAura : MonoBehaviour
             IHealable healable = collision.GetComponent<IHealable>();
             if (healable != null && healingCoroutine != null)
             {
-                // Detiene la curación cuando el jugador sale del área
+                //Detiene la curación cuando el jugador sale del área
                 StopCoroutine(healingCoroutine);
                 healingCoroutine = null;
             }

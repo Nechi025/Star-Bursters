@@ -892,7 +892,7 @@ MonoBehaviour:
   FiringPoints:
   - {fileID: 3555729870027733175}
   - {fileID: 46546958959093458}
-  abilitie: {fileID: 0}
+  abilitie: {fileID: 7445213044756509189}
   abilitieCooldown: 0
   abilitieDuration: 0
 --- !u!61 &-1542010604743445940
@@ -924,7 +924,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.05}
