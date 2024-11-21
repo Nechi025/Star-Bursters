@@ -16,6 +16,7 @@ public abstract class Enemy : MonoBehaviour
     protected float nextAttackTime;
     private bool isAttacking;
     public float RotationSpeed = 180f;
+    public int ScoreValue;
     protected virtual void Update()
     {
         MoveAlongPath();
@@ -32,6 +33,11 @@ public abstract class Enemy : MonoBehaviour
 
         if (Health <= 0)
         {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                ScoreManager.Instance.AddScore(ScoreValue);
+            }
+
             Destroy(this.gameObject);
         }
     }
