@@ -4452,6 +4452,66 @@ MonoBehaviour:
   waves:
   - enemies:
     - factory: {fileID: 1343162090}
+      amount: 5
+    timeBetweenEnemies: 2
+  - enemies:
+    - factory: {fileID: 1343162091}
+      amount: 5
+    timeBetweenEnemies: 2
+  - enemies:
+    - factory: {fileID: 1343162093}
+      amount: 5
+    timeBetweenEnemies: 2
+  - enemies:
+    - factory: {fileID: 1343162092}
+      amount: 3
+    timeBetweenEnemies: 2
+  - enemies:
+    - factory: {fileID: 1343162090}
+      amount: 2
+    - factory: {fileID: 1343162091}
+      amount: 2
+    timeBetweenEnemies: 3
+  - enemies:
+    - factory: {fileID: 1343162090}
+      amount: 1
+    - factory: {fileID: 1343162092}
+      amount: 2
+    - factory: {fileID: 1343162090}
+      amount: 1
+    timeBetweenEnemies: 2
+  - enemies:
+    - factory: {fileID: 1343162091}
+      amount: 2
+    - factory: {fileID: 1343162093}
+      amount: 2
+    timeBetweenEnemies: 2
+  - enemies:
+    - factory: {fileID: 1343162090}
+      amount: 2
+    - factory: {fileID: 1343162093}
+      amount: 2
+    - factory: {fileID: 1343162090}
+      amount: 2
+    timeBetweenEnemies: 5
+  - enemies:
+    - factory: {fileID: 1343162092}
+      amount: 2
+    - factory: {fileID: 1343162091}
+      amount: 1
+    - factory: {fileID: 1343162090}
+      amount: 1
+    timeBetweenEnemies: 3
+  - enemies:
+    - factory: {fileID: 1343162090}
+      amount: 7
+    timeBetweenEnemies: 5
+  - enemies:
+    - factory: {fileID: 1343162091}
+      amount: 3
+    timeBetweenEnemies: 1
+  - enemies:
+    - factory: {fileID: 1343162090}
       amount: 1
     - factory: {fileID: 1343162091}
       amount: 1
@@ -4459,13 +4519,31 @@ MonoBehaviour:
       amount: 1
     - factory: {fileID: 1343162092}
       amount: 1
-    timeBetweenEnemies: 1
+    timeBetweenEnemies: 4
+  - enemies:
+    - factory: {fileID: 1343162090}
+      amount: 2
+    - factory: {fileID: 1343162091}
+      amount: 2
+    - factory: {fileID: 1343162093}
+      amount: 2
+    - factory: {fileID: 1343162092}
+      amount: 2
+    timeBetweenEnemies: 6
+  - enemies:
+    - factory: {fileID: 1343162092}
+      amount: 2
+    - factory: {fileID: 1343162090}
+      amount: 3
+    - factory: {fileID: 1343162092}
+      amount: 2
+    timeBetweenEnemies: 4
   bonusWave:
     enemies:
-    - factory: {fileID: 1343162091}
-      amount: 15
+    - factory: {fileID: 1343162090}
+      amount: 1
     timeBetweenEnemies: 1
-  timeBetweenWaves: 2
+  timeBetweenWaves: 7
   timeToStartSpawning: 5
   gameStart: 0
 --- !u!4 &1343162089
