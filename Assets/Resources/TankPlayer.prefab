@@ -514,6 +514,7 @@ MonoBehaviour:
   abilitie: {fileID: 1523646625929366248}
   abilitieCooldown: 30
   abilitieDuration: 15
+  healthBar: {fileID: 6822335008458629760}
 --- !u!61 &-723706301616462421
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -593,8 +594,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 106.44, y: -0.00026512146}
-  m_SizeDelta: {x: 225.14, y: 0.00049973}
+  m_AnchoredPosition: {x: 1.0083008, y: -0.0003004074}
+  m_SizeDelta: {x: 1.9648, y: 0.0005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2235206558801752001
 CanvasRenderer:
@@ -752,7 +753,6 @@ GameObject:
   - component: {fileID: 6611948412205213599}
   - component: {fileID: 659149408994267498}
   - component: {fileID: 6982842745222088231}
-  - component: {fileID: 4631306541196928481}
   - component: {fileID: 5901714968185880347}
   m_Layer: 5
   m_Name: UI
@@ -844,20 +844,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4631306541196928481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3233570774737595583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94ed359f3c568e4a8c36fe129d6f81c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSelectCanvas: {fileID: 0}
-  spawner: {fileID: 0}
 --- !u!114 &5901714968185880347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1259,8 +1245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 21.005005, y: 0.21070099}
-  m_SizeDelta: {x: -30.99, y: -20.6573}
+  m_AnchoredPosition: {x: 17.673004, y: 0.21070099}
+  m_SizeDelta: {x: -24.326, y: -20.6573}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9037863588293051572
 GameObject:

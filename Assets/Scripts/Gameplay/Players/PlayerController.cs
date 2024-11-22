@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour, IHealable
 {
@@ -16,9 +17,10 @@ public class PlayerController : MonoBehaviour, IHealable
     float timeNextShoot = 0;
     public List<Transform> FiringPoints;
     [SerializeField] GameObject abilitie;
-    private float cdAbilitie = 0f; //Tiempo restante para que la habilidad se pueda usar
-    [SerializeField] float abilitieCooldown = 0; //Duración total del cooldown
+    private float cdAbilitie = 0f;
+    [SerializeField] float abilitieCooldown = 0; 
     [SerializeField] float abilitieDuration = 0;
+    [SerializeField] Slider healthBar; 
 
     private void Awake()
     {
@@ -28,46 +30,22 @@ public class PlayerController : MonoBehaviour, IHealable
     private void Start()
     {
         maxHealth = Health;
+
+        if (pv.IsMine)
+        {
+          
+            healthBar.maxValue = maxHealth;
+            healthBar.value = Health;
+        }
     }
 
     private void Update()
     {
         if (pv.IsMine)
         {
-            if (Input.GetKey(KeyCode.W))
-            {
-                transform.position += Vector3.up * 5 * Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                transform.position += -Vector3.up * 5 * Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.position += -Vector3.right * 5 * Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                transform.position += Vector3.right * 5 * Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.Space) && Time.time >= timeNextShoot)
-            {
-                Shoot();
-                timeNextShoot = Time.time + attackCooldown;
-            }
-            if (Input.GetKeyDown(KeyCode.E) && cdAbilitie <= 0f)
-            {
-                pv.RPC("UseAbilitie", RpcTarget.All);
-                cdAbilitie = abilitieCooldown;
-            }
-
-            // Actualiza el cooldown
-            if (cdAbilitie > 0f)
-            {
-                cdAbilitie -= Time.deltaTime; //Reduce el tiempo restante del cooldown
-            }
+            HandleInput();
+            UpdateHealthBar();
         }
-
 
         if (Health <= 0)
         {
@@ -75,21 +53,64 @@ public class PlayerController : MonoBehaviour, IHealable
         }
     }
 
+    private void HandleInput()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.position += Vector3.up * 5 * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.position += -Vector3.up * 5 * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.position += -Vector3.right * 5 * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.position += Vector3.right * 5 * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.Space) && Time.time >= timeNextShoot)
+        {
+            Shoot();
+            timeNextShoot = Time.time + attackCooldown;
+        }
+        if (Input.GetKeyDown(KeyCode.E) && cdAbilitie <= 0f)
+        {
+            pv.RPC("UseAbilitie", RpcTarget.All);
+            cdAbilitie = abilitieCooldown;
+        }
+
+        if (cdAbilitie > 0f)
+        {
+            cdAbilitie -= Time.deltaTime;
+        }
+    }
+
+    private void UpdateHealthBar()
+    {
+        if (healthBar != null)
+        {
+            healthBar.value = Health;
+        }
+    }
+
     private void LateUpdate()
     {
-        //Limites del mapa
+    
         transform.position = new Vector3(
             Mathf.Clamp(transform.position.x, Vrange.x, Vrange.y),
             Mathf.Clamp(transform.position.y, Hrange.x, Hrange.y),
             transform.position.z
-            );
+        );
     }
 
     public void Shoot()
     {
         foreach (var point in FiringPoints)
         {
-            GameObject go = PhotonNetwork.Instantiate(bullet.name, point.position, point.rotation);
+            PhotonNetwork.Instantiate(bullet.name, point.position, point.rotation);
         }
     }
 
@@ -99,16 +120,31 @@ public class PlayerController : MonoBehaviour, IHealable
 
         if (bullet != null && bullet.CompareTag("EnemyShot"))
         {
-            Health -= bullet.damage;
+            TakeDamage(bullet.damage);
             Destroy(bullet.gameObject);
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (pv.IsMine)
+        {
+            Health -= damage;
+            pv.RPC("SyncHealth", RpcTarget.All, Health);
+        }
+    }
+
+    [PunRPC]
+    private void SyncHealth(float updatedHealth)
+    {
+        Health = updatedHealth;
+        UpdateHealthBar();
     }
 
     [PunRPC]
     private void UseAbilitie()
     {
         abilitie.SetActive(true);
-
         StartCoroutine(DestroyAfterTime(abilitie, abilitieDuration));
     }
 
@@ -117,14 +153,17 @@ public class PlayerController : MonoBehaviour, IHealable
         yield return new WaitForSeconds(duration);
         if (obj != null)
         {
-            obj.SetActive(false); //Destruir el objeto de la habilidad
+            obj.SetActive(false);
         }
     }
 
     public void Heal(int amount)
     {
-        Health += amount;
-        Health = Mathf.Min(Health, maxHealth); //Limitar a la salud máxima
-        Debug.Log($"Jugador curado. Salud actual: {Health}");
+        if (pv.IsMine)
+        {
+            Health += amount;
+            Health = Mathf.Min(Health, maxHealth);
+            pv.RPC("SyncHealth", RpcTarget.All, Health);
+        }
     }
 }
