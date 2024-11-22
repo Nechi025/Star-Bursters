@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour, IHealable
     float timeNextShoot = 0;
     public List<Transform> FiringPoints;
     [SerializeField] GameObject abilitie;
-    private float cdAbilitie = 0f; // Tiempo restante para que la habilidad se pueda usar
-    [SerializeField] float abilitieCooldown = 0; // Duración total del cooldown
+    private float cdAbilitie = 0f; //Tiempo restante para que la habilidad se pueda usar
+    [SerializeField] float abilitieCooldown = 0; //Duración total del cooldown
     [SerializeField] float abilitieDuration = 0;
 
     private void Awake()
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour, IHealable
             // Actualiza el cooldown
             if (cdAbilitie > 0f)
             {
-                cdAbilitie -= Time.deltaTime; // Reduce el tiempo restante del cooldown
+                cdAbilitie -= Time.deltaTime; //Reduce el tiempo restante del cooldown
             }
         }
 
@@ -119,14 +119,14 @@ public class PlayerController : MonoBehaviour, IHealable
         yield return new WaitForSeconds(duration);
         if (obj != null)
         {
-            obj.SetActive(false); // Destruir el objeto de la habilidad
+            obj.SetActive(false); //Destruir el objeto de la habilidad
         }
     }
 
     public void Heal(int amount)
     {
         Health += amount;
-        Health = Mathf.Min(Health, maxHealth); // Limitar a la salud máxima
+        Health = Mathf.Min(Health, maxHealth); //Limitar a la salud máxima
         Debug.Log($"Jugador curado. Salud actual: {Health}");
     }
 }
