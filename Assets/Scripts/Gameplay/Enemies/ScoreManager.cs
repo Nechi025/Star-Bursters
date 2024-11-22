@@ -1,16 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreManager : MonoBehaviourPun
 {
     public static ScoreManager Instance;
     public TextMeshProUGUI scoreText;
     private int score = 0;
-    private PhotonView pv;
 
     private void Awake()
     {
@@ -22,7 +20,6 @@ public class ScoreManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        pv = GetComponent<PhotonView>();
     }
 
     private void Start()
@@ -30,29 +27,29 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreText();
     }
 
-   
     public void AddScore(int amount)
     {
-        score += amount;
-        UpdateScoreText();
-    }
-
-    
-
-    private void UpdateScoreText()
-    {
-        pv.RPC("LogicUpdate", RpcTarget.AllBuffered);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            score += amount;
+            photonView.RPC("UpdateScore", RpcTarget.All, score);
+        }
     }
 
     [PunRPC]
-    private void LogicUpdate()
+    private void UpdateScore(int updatedScore)
+    {
+        score = updatedScore;
+        UpdateScoreText();
+    }
+
+    private void UpdateScoreText()
     {
         if (scoreText != null)
         {
-
-            scoreText.text = "HS  " + score;
-
+            scoreText.text = "HS " + score;
         }
     }
 }
+
 
