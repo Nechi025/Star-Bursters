@@ -72,8 +72,6 @@ public class PlayerController : MonoBehaviour, IHealable
         if (Health <= 0)
         {
             Destroy(this.gameObject);
-            PhotonNetwork.LeaveRoom();
-            SceneManager.LoadScene("MainMenu");
         }
     }
 
