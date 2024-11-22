@@ -22,17 +22,6 @@ public class HealingAura : MonoBehaviour
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            Debug.Log("Te toque por colision");
-            IHealable healable = collision.gameObject.GetComponent<IHealable>();
-            if (healable != null)
-            {
-                //Inicia la curación constante
-                healingCoroutine = StartCoroutine(HealOverTime(healable));
-            }
-        }
-
         private void OnTriggerExit2D(Collider2D collision)
         {
             IHealable healable = collision.GetComponent<IHealable>();

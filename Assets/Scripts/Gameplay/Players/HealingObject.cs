@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealingObject : MonoBehaviour
 {
-    [SerializeField] private int healingAmount = 20;
+    [SerializeField] private int healingAmount = 10;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,7 +13,7 @@ public class HealingObject : MonoBehaviour
         if (healable != null)
         {
             healable.Heal(healingAmount);
-            Debug.Log("Objeto curó al jugador.");
+            Debug.Log("Curo al jugador");
         }
     }
 }

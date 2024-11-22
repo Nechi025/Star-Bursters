@@ -1,18 +1,8 @@
-using System.Collections;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
-using System.Collections.Generic;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private GameObject enemyPrefab; // Assign the prefab in the Inspector
 
-    void Start()
-    {
-        if (enemyPrefab != null)
-        {
-            Instantiate(enemyPrefab);
-        }
-    }
 }
-
-

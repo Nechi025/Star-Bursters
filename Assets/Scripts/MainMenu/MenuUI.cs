@@ -39,7 +39,7 @@ public class MenuUI : MonoBehaviourPunCallbacks
         }
 
         RoomOptions roomConfiguration = new RoomOptions();
-        roomConfiguration.MaxPlayers = 2;
+        roomConfiguration.MaxPlayers = 3;
         PhotonNetwork.CreateRoom(createInput.text, roomConfiguration);
     }
 
@@ -55,7 +55,7 @@ public class MenuUI : MonoBehaviourPunCallbacks
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
-        feedbackText.text = $"Error al unirse: {message}. ¿La sala existe?";
+        feedbackText.text = $"Error al unirse: {message}.";
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)

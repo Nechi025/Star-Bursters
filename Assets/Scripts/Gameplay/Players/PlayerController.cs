@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour, IHealable
 {
@@ -71,6 +72,8 @@ public class PlayerController : MonoBehaviour, IHealable
         if (Health <= 0)
         {
             Destroy(this.gameObject);
+            PhotonNetwork.LeaveRoom();
+            SceneManager.LoadScene("MainMenu");
         }
     }
 

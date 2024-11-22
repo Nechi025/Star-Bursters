@@ -28,17 +28,41 @@ public class PlayerSpawn : MonoBehaviour
 
     public void SpawnCharacter(characters selectedCharacter)
     {
-        GameObject prefabToSpawn = selectedCharacter switch
+        /*GameObject prefabToSpawn = selectedCharacter switch
         {
             characters.ghost => ghostPrefab,
             characters.healer => healerPrefab,
             characters.tank => tankPrefab,
             characters.recon => reconPrefab,
             _ => ghostPrefab // Valor por defecto si algo falla
-        };
+        };*/
 
-        player = PhotonNetwork.Instantiate(prefabToSpawn.name,
+        GameObject prefabToSpawn = GetPrefab(selectedCharacter);
+
+        if (prefabToSpawn != null)
+        {
+            PhotonNetwork.Instantiate(prefabToSpawn.name,
                             new Vector2(Random.Range(-4, 4), Random.Range(-4, -2)),
                             Quaternion.identity);
+        }
+        //player = 
+    }
+
+    private GameObject GetPrefab(characters characterType)
+    {
+        switch (characterType)
+        {
+            case characters.ghost:
+                return ghostPrefab;
+            case characters.healer:
+                return healerPrefab;
+            case characters.tank:
+                return tankPrefab;
+            case characters.recon:
+                return reconPrefab;
+            default:
+                return null;
+        }
     }
 }
+

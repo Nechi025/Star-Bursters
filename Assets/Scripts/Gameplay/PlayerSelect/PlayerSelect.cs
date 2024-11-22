@@ -1,11 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class PlayerSelect : MonoBehaviour
 {
-    private Dictionary<characters, int> selectedCharacters = new Dictionary<characters, int>();
+    private Dictionary<int, characters> selectedCharacters = new Dictionary<int, characters>(); //ID del jugador y su selección
     private PhotonView pv;
     [SerializeField] GameObject playerSelectCanvas;
     [SerializeField] EnemySpawner spawner;
@@ -17,35 +17,40 @@ public class PlayerSelect : MonoBehaviour
 
     public void Ghost()
     {
-        SelectCharacter(characters.ghost);
+        ChangeCharacterSelection(characters.ghost);
     }
+
     public void Healer()
     {
-        SelectCharacter(characters.healer);
+        ChangeCharacterSelection(characters.healer);
     }
+
     public void Tank()
     {
-        SelectCharacter(characters.tank);
+        ChangeCharacterSelection(characters.tank);
     }
+
     public void Recon()
     {
-        SelectCharacter(characters.recon);
+        ChangeCharacterSelection(characters.recon);
     }
+
     public void LeaveRoom()
     {
-
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void StartGame()
     {
-        // Solo el host puede verificar e iniciar el juego
         if (PhotonNetwork.IsMasterClient)
         {
-            // Verifica si todos los jugadores seleccionaron un personaje
             if (AllPlayersSelected())
             {
+                PhotonNetwork.CurrentRoom.IsOpen = false;
+
                 Debug.Log("Todos los jugadores han seleccionado. Iniciando el juego...");
-                pv.RPC("BeginGame", RpcTarget.All);
+                pv.RPC("BeginGame", RpcTarget.AllBuffered);
                 spawner.gameStart = true;
             }
             else
@@ -57,47 +62,49 @@ public class PlayerSelect : MonoBehaviour
 
     private bool AllPlayersSelected()
     {
-        // Compara el número de selecciones con el número de jugadores en la sala
         return selectedCharacters.Count == PhotonNetwork.CurrentRoom.PlayerCount;
     }
 
-    private void SelectCharacter(characters character)
+    private void ChangeCharacterSelection(characters newCharacter)
     {
         int playerID = PhotonNetwork.LocalPlayer.ActorNumber;
 
-        // Solo permite seleccionar si el personaje no está tomado
-        if (!selectedCharacters.ContainsKey(character))
+        // Verifica si el personaje ya está seleccionado por otro jugador
+        if (!selectedCharacters.ContainsValue(newCharacter))
         {
-            // Sincroniza la selección con todos los jugadores
-            pv.RPC("ConfirmSelection", RpcTarget.AllBuffered, character, playerID);
+            // Notifica a todos el cambio de selección
+            pv.RPC("UpdateCharacterSelection", RpcTarget.AllBuffered, newCharacter, playerID);
         }
         else
         {
-            Debug.Log($"El personaje {character} ya está seleccionado por otro jugador.");
+            Debug.Log($"El personaje {newCharacter} ya está seleccionado por otro jugador.");
         }
     }
 
-
     [PunRPC]
-    private void ConfirmSelection(characters character, int playerID)
+    private void UpdateCharacterSelection(characters newCharacter, int playerID)
     {
-        // Verifica si el personaje ya está tomado
-        if (!selectedCharacters.ContainsKey(character))
+        // Libera el personaje previamente seleccionado (si existe)
+        if (selectedCharacters.ContainsKey(playerID))
         {
-            selectedCharacters[character] = playerID;
-
-            // Si este es el jugador local, llama a SpawnCharacter
-            if (PhotonNetwork.LocalPlayer.ActorNumber == playerID)
-            {
-                PlayerSpawn playerSpawn = FindObjectOfType<PlayerSpawn>();
-                playerSpawn.SpawnCharacter(character);
-            }
+            Debug.Log($"Jugador {playerID} cambió de {selectedCharacters[playerID]} a {newCharacter}.");
+            selectedCharacters.Remove(playerID);
         }
+
+        // Asigna el nuevo personaje
+        selectedCharacters[playerID] = newCharacter;
     }
 
     [PunRPC]
     private void BeginGame()
     {
         playerSelectCanvas.SetActive(false);
+
+        // Hace el spawn de los personajes seleccionados
+        if (selectedCharacters.TryGetValue(PhotonNetwork.LocalPlayer.ActorNumber, out characters selectedCharacter))
+        {
+            PlayerSpawn playerSpawn = FindObjectOfType<PlayerSpawn>();
+            playerSpawn.SpawnCharacter(selectedCharacter);
+        }
     }
 }
