@@ -43,7 +43,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 900e46c7e77b2eb4f9a71c55182281e5, type: 2}
+  m_Motion: {fileID: 7400000, guid: 620386f0c1d162940b56e3cb361c3faa, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -124,7 +124,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c6d823c61caa4a046b38fabdc82c4960, type: 2}
+  m_Motion: {fileID: 7400000, guid: 110de5b337b8e5a4998e5da001a61f67, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -136,7 +136,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HealingAura
+  m_Name: GhostZone
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -172,7 +172,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 89a792e1f6b74c0438e940411ee8e15e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2a15267a8c986624083cf717b58ef09d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -198,7 +198,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b782567a5ebdc764dbab228dda6e1290, type: 2}
+  m_Motion: {fileID: 7400000, guid: df950860355239642a0fc694c1ff6116, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

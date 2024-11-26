@@ -43,7 +43,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 900e46c7e77b2eb4f9a71c55182281e5, type: 2}
+  m_Motion: {fileID: 7400000, guid: f7e91ef31923e8c4b9648e9553a7f954, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -124,7 +124,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c6d823c61caa4a046b38fabdc82c4960, type: 2}
+  m_Motion: {fileID: 7400000, guid: 59221290b6f0e474e88846d9aa63ea69, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -136,7 +136,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HealingAura
+  m_Name: ReconBoost
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -172,7 +172,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 89a792e1f6b74c0438e940411ee8e15e, type: 2}
+  m_Motion: {fileID: 7400000, guid: f6148012a50a16b4ab091ac3d70c0fc1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -198,7 +198,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b782567a5ebdc764dbab228dda6e1290, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3e1c1e959de7ad7438b1aa9c03a053aa, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
