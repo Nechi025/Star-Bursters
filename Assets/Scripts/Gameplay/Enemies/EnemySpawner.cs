@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using TMPro;
 
 [System.Serializable]
 public class Wave
@@ -22,16 +23,21 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] List<Wave> waves;     
     [SerializeField] Wave bonusWave;         
     [SerializeField] float timeBetweenWaves;   
-    [SerializeField] float timeToStartSpawning; 
+    [SerializeField] float timeToStartSpawning;
+    [SerializeField] TextMeshProUGUI waveText;
 
+    private PhotonView photonView;
     private float timer;
     private int waveCount = 0; 
     private bool spawningWave = false;
     public bool gameStart = false;
 
+
     private void Start()
     {
+        photonView = GetComponent<PhotonView>();
         timer = 0;
+        UpdateWaveText();
     }
 
     private void Update()
@@ -55,7 +61,7 @@ public class EnemySpawner : MonoBehaviour
                     StartCoroutine(SpawnWave(waves[randomWaveIndex]));
                     waveCount++;
                 }
-
+                UpdateWaveText();
                 timer = 0;
             }
         }
@@ -77,4 +83,24 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenWaves);
         spawningWave = false;
     }
+
+    private void UpdateWaveText()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+           
+            photonView.RPC("UpdateWaveTextRPC", RpcTarget.AllBuffered, waveCount + 1);
+        }
+    }
+
+    [PunRPC]
+    private void UpdateWaveTextRPC(int waveNumber)
+    {
+        if (waveText != null)
+        {
+            waveText.text = $"Wave    {waveNumber}";
+        }
+    }
+
+
 }

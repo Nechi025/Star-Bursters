@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
 
@@ -27,18 +28,21 @@ public class ScoreManager : MonoBehaviourPun
         UpdateScoreText();
     }
 
+    
     public void AddScore(int amount)
     {
         if (PhotonNetwork.IsMasterClient)
         {
+            
             score += amount;
-            photonView.RPC("UpdateScore", RpcTarget.All, score);
+            photonView.RPC("UpdateScoreRPC", RpcTarget.All, score);
         }
     }
 
     [PunRPC]
-    private void UpdateScore(int updatedScore)
+    private void UpdateScoreRPC(int updatedScore)
     {
+        
         score = updatedScore;
         UpdateScoreText();
     }
@@ -47,9 +51,7 @@ public class ScoreManager : MonoBehaviourPun
     {
         if (scoreText != null)
         {
-            scoreText.text = "HS " + score;
+            scoreText.text = "Score   " + score;
         }
     }
 }
-
-

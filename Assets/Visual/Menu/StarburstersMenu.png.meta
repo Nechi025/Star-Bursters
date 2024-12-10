@@ -680,8 +680,8 @@ TextureImporter:
       name: Button2
       rect:
         serializedVersion: 2
-        x: 1
-        y: 93
+        x: 66
+        y: 112
         width: 46
         height: 14
       alignment: 0
@@ -701,8 +701,8 @@ TextureImporter:
       name: Display
       rect:
         serializedVersion: 2
-        x: 2
-        y: 77
+        x: 1
+        y: 93
         width: 79
         height: 14
       alignment: 0
@@ -722,8 +722,8 @@ TextureImporter:
       name: LargeDisplay
       rect:
         serializedVersion: 2
-        x: 95
-        y: 95
+        x: 113
+        y: 97
         width: 79
         height: 30
       alignment: 0
@@ -764,10 +764,10 @@ TextureImporter:
       name: HealthBar
       rect:
         serializedVersion: 2
-        x: 3
-        y: 50
-        width: 92
-        height: 17
+        x: 48
+        y: 48
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -785,10 +785,10 @@ TextureImporter:
       name: Healer
       rect:
         serializedVersion: 2
-        x: 98
-        y: 66
-        width: 13
-        height: 13
+        x: 97
+        y: 65
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -806,10 +806,10 @@ TextureImporter:
       name: Tank
       rect:
         serializedVersion: 2
-        x: 114
-        y: 66
-        width: 13
-        height: 13
+        x: 113
+        y: 65
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -827,10 +827,10 @@ TextureImporter:
       name: DPS
       rect:
         serializedVersion: 2
-        x: 98
-        y: 51
-        width: 13
-        height: 13
+        x: 97
+        y: 49
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -848,10 +848,10 @@ TextureImporter:
       name: Recon
       rect:
         serializedVersion: 2
-        x: 114
-        y: 50
-        width: 13
-        height: 13
+        x: 113
+        y: 49
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -861,6 +861,27 @@ TextureImporter:
       bones: []
       spriteID: 345ffc52883ffbe40b42525ca1ab1b89
       internalID: -180753171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmptyHealth
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa192c22bdfe1004988d4628b8bacf12
+      internalID: -1968470601
       vertices: []
       indices: 
       edges: []
@@ -885,6 +906,7 @@ TextureImporter:
       DPS: 1394662661
       Display: 1873954827
       E: 1158814911
+      EmptyHealth: -1968470601
       F: -1862970859
       G: -2137336821
       H: 458871465
