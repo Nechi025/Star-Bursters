@@ -8,6 +8,7 @@ TagManager:
   - EnemyShot
   - BulletDestroy
   - BulletEnemyDestroy
+  - Revive
   layers:
   - Default
   - TransparentFX

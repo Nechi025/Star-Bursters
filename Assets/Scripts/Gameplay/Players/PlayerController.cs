@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour, IHealable
     public List<Transform> FiringPoints;
     [SerializeField] GameObject abilitie;
     private float cdAbilitie = 0f;
-    [SerializeField] float abilitieCooldown = 0; 
+    [SerializeField] float abilitieCooldown = 0;
     [SerializeField] float abilitieDuration = 0;
     [SerializeField] Slider healthBar;
 
@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour, IHealable
     private string currentStateA;
 
     const string abilityStart = "Start";
+
+    public bool isDead = false;
 
     private void Awake()
     {
@@ -38,7 +40,7 @@ public class PlayerController : MonoBehaviour, IHealable
 
         if (pv.IsMine)
         {
-          
+
             healthBar.maxValue = maxHealth;
             healthBar.value = Health;
         }
@@ -48,13 +50,20 @@ public class PlayerController : MonoBehaviour, IHealable
     {
         if (pv.IsMine)
         {
-            HandleInput();
-            UpdateHealthBar();
+            if (isDead == false)
+            {
+                HandleInput();
+                UpdateHealthBar();
+            }
         }
 
         if (Health <= 0)
         {
-            Destroy(this.gameObject);
+            isDead = true;
+        }
+        else
+        {
+            isDead = false;
         }
     }
 
@@ -112,7 +121,7 @@ public class PlayerController : MonoBehaviour, IHealable
 
     private void LateUpdate()
     {
-    
+
         transform.position = new Vector3(
             Mathf.Clamp(transform.position.x, Vrange.x, Vrange.y),
             Mathf.Clamp(transform.position.y, Hrange.x, Hrange.y),
@@ -132,10 +141,20 @@ public class PlayerController : MonoBehaviour, IHealable
     {
         Bullet bullet = collision.GetComponent<Bullet>();
 
-        if (bullet != null && bullet.CompareTag("EnemyShot"))
+        if (bullet != null && bullet.CompareTag("EnemyShot") && isDead == false)
         {
             TakeDamage(bullet.damage);
             Destroy(bullet.gameObject);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        PlayerController deadPlayer = collision.GetComponent<PlayerController>();
+
+        if (deadPlayer != null && deadPlayer.isDead == true && deadPlayer != this)
+        {
+            StartCoroutine(ReviveProcess(deadPlayer));
         }
     }
 
@@ -169,6 +188,31 @@ public class PlayerController : MonoBehaviour, IHealable
         {
             obj.SetActive(false);
         }
+    }
+
+    private IEnumerator ReviveProcess(PlayerController reviver)
+    {
+        //isBeingRevived = true;
+        float timer = 0f;
+
+        Debug.Log("Iniciando proceso de revivir...");
+
+        while (timer < 3)
+        {
+            if (Vector2.Distance(reviver.transform.position, this.transform.position) > 1.5f) // Si el jugador se aleja
+            {
+                Debug.Log("Revival interrumpido.");
+                //isBeingRevived = false;
+                yield break;
+            }
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        reviver.Health = 50;
+        Debug.Log("Jugador revivio");
+        //isBeingRevived = false;
     }
 
     public void Heal(int amount)
