@@ -22,10 +22,8 @@ public class PlayerController : MonoBehaviour, IHealable
     [SerializeField] float abilitieDuration = 0;
     [SerializeField] Slider healthBar;
 
-    public Animator abilityAnim; //Animacion de habilidades
-    private string currentStateA;
+    [SerializeField] private Animator animator;
 
-    const string abilityStart = "Start";
 
     public bool isDead = false;
 
@@ -94,7 +92,7 @@ public class PlayerController : MonoBehaviour, IHealable
         {
             pv.RPC("UseAbilitie", RpcTarget.All);
             cdAbilitie = abilitieCooldown;
-            ChangeAnimationState(abilityStart);
+            animator.SetTrigger("AbilityUse");
         }
 
         if (cdAbilitie > 0f)
@@ -104,12 +102,7 @@ public class PlayerController : MonoBehaviour, IHealable
     }
 
 
-    void ChangeAnimationState(string newStateA)
-    {
-        if (currentStateA == newStateA) return;
-        abilityAnim.Play(newStateA);
-        currentStateA = newStateA;
-    }
+    
 
     private void UpdateHealthBar()
     {
