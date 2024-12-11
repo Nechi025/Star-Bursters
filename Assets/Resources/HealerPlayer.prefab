@@ -949,7 +949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a936df62077af44a3a4c2a775ce548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 75
   Hrange: {x: -4.5, y: 4.5}
   Vrange: {x: -6.8, y: 8.4}
   bullet: {fileID: 4389822798063132423, guid: 72b6910ff7d8df24a9cf3df6c17627cd, type: 3}
@@ -957,7 +957,7 @@ MonoBehaviour:
   FiringPoints:
   - {fileID: 6100107585932698843}
   abilitie: {fileID: 607210213574620864}
-  abilitieCooldown: 15
+  abilitieCooldown: 20
   abilitieDuration: 10
   healthBar: {fileID: 8579101318906101767}
   abilityAnim: {fileID: 1579300344965871699}
