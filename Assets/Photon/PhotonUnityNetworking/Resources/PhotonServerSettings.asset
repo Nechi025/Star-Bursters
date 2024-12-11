@@ -54,6 +54,7 @@ MonoBehaviour:
   - UpdateScoreRPC
   - UpdateWaveTextRPC
   - SyncWaveState
+  - PlaySongRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

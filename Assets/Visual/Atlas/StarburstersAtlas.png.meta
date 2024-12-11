@@ -907,6 +907,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SawShot
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 645
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0dbcb1647f7b0946a8b3a365e55d24a
+      internalID: -464803671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TorpedoShot
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 645
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8718af843361f5b4494ebf0f09179f21
+      internalID: 1091644399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikeShooter
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 670
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc2074c983fcfc34593fa8f2eed5de04
+      internalID: 1180039948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikeShot
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 647
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b3382bcf506bb342925956634ed6d7b
+      internalID: 25099299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -950,13 +1034,17 @@ TextureImporter:
       ReconLaser3: 277979272
       ReconNoCharge: -94531076
       ReconShip: -2122618485
+      SawShot: -464803671
       SelfBomber: -85455259
+      SpikeShooter: 1180039948
+      SpikeShot: 25099299
       TankDowned: -1458688648
       TankRocket: 436172863
       TankShield: -472676571
       TankShip: 217574338
       TankShooter: -934365797
       TankSmallShield: -1229247959
+      TorpedoShot: 1091644399
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

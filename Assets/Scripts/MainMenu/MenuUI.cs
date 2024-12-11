@@ -78,83 +78,60 @@ public class MenuUI : MonoBehaviourPunCallbacks
 
 
     [System.Serializable]
-    public class MenuButton
+    public class GuideButton
     {
-        public Button button;
-        public Animator animator;
-        public string animationTrigger = "Pressed";
+        public Button button;        
+        public string animationState; 
     }
 
-    [Header("Generic Buttons")]
-    [SerializeField] private List<MenuButton> genericButtons;
+    [Header("Guide Buttons")]
+    public List<GuideButton> guideButtons;
 
-    [Header("Special Buttons")]
-    [SerializeField] private Button exitButton;
+    [Header("Animator")]
+    public Animator animator; 
+
+    [Header("Exit Button")]
+    public Button exitButton; 
 
     private void Start()
     {
-        if (GameManager.Instance != null)
+        foreach (var guideButton in guideButtons)
         {
-            string message = GameManager.Instance.GetMessage();
-            if (!string.IsNullOrEmpty(message))
+            if (guideButton.button != null)
             {
-                feedbackText.text = message;
+                string animationState = guideButton.animationState; 
+                guideButton.button.onClick.AddListener(() => ChangeAnimationState(animationState));
             }
         }
-            
 
-
-        foreach (var menuButton in genericButtons)
-        {
-            if (menuButton.button != null && menuButton.animator != null)
-            {
-                menuButton.button.onClick.AddListener(() => HandleGenericButtonPress(menuButton));
-            }
-            else
-            {
-                Debug.LogWarning("Button or Animator is null in generic buttons list!");
-            }
-        }
 
         if (exitButton != null)
         {
-            exitButton.onClick.AddListener(HandleExitButtonPress);
+            exitButton.onClick.AddListener(ExitGame);
+        }
+    }
+
+
+    private void ChangeAnimationState(string animationState)
+    {
+        if (animator != null)
+        {
+            animator.Play(animationState);
+            Debug.Log($"Playing Animation: {animationState}");
         }
         else
         {
-            Debug.LogWarning("Exit button is not assigned!");
+            Debug.LogWarning("Animator is not assigned!");
         }
     }
 
-    private void HandleGenericButtonPress(MenuButton menuButton)
+
+    private void ExitGame()
     {
-        menuButton.animator.SetTrigger(menuButton.animationTrigger);
-        Debug.Log($"Button pressed: {menuButton.button.name}");
-    }
-
-    private void HandleExitButtonPress()
-    {
-
-        Debug.Log("Closing Game (In Editor)");
-
+#if UNITY_EDITOR
+        Debug.Log("Closing Game");
+#else
         Application.Quit();
-
-    }
-
-    public void AddGenericButton(Button button, Animator animator, string animationTrigger = "Pressed")
-    {
-        genericButtons.Add(new MenuButton
-        {
-            button = button,
-            animator = animator,
-            animationTrigger = animationTrigger
-        });
-
-        button.onClick.AddListener(() => HandleGenericButtonPress(genericButtons[genericButtons.Count - 1]));
-    }
-
-    public void RemoveGenericButton(Button button)
-    {
-        genericButtons.RemoveAll(mb => mb.button == button);
+#endif
     }
 }
