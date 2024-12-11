@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
+using UnityEngine.SceneManagement;
 using TMPro;
+using ExitGames.Client.Photon;
 
 [System.Serializable]
 public class Wave
@@ -18,7 +21,7 @@ public class EnemyConfig
     public int amount;                    
 }
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour, IInRoomCallbacks
 {
     [SerializeField] List<Wave> waves;     
     [SerializeField] Wave bonusWave;         
@@ -102,5 +105,41 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        PhotonNetwork.AddCallbackTarget(this);
+    }
 
+    private void OnDisable()
+    {
+        PhotonNetwork.RemoveCallbackTarget(this);
+    }
+
+    // Método que realmente necesitas
+    public void OnMasterClientSwitched(Player newMasterClient)
+    {
+        Debug.Log("MasterClient has switched!");
+
+        // Verifica si el nuevo MasterClient es null (puede ocurrir en desconexiones)
+        if (newMasterClient == null || PhotonNetwork.PlayerList.Length <= 1)
+        {
+            NotifyPlayersAndCloseRoom();
+        }
+    }
+
+    private void NotifyPlayersAndCloseRoom()
+    {
+        GameManager.Instance.SetMessage("La sala se cerró debido a la desconexión del MasterClient.");
+
+        // Regresar al menú principal
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void OnPlayerEnteredRoom(Player newPlayer) { }
+
+    public void OnPlayerLeftRoom(Player otherPlayer) { }
+
+    public void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged) { }
+
+    public void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps) { }
 }

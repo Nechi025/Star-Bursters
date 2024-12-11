@@ -22,6 +22,8 @@ public class MenuUI : MonoBehaviourPunCallbacks
         joinButton.onClick.AddListener(JoinRoom);
     }
 
+
+
     private void OnDestroy()
     {
         createButton.onClick.RemoveAllListeners();
@@ -91,6 +93,17 @@ public class MenuUI : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        if (GameManager.Instance != null)
+        {
+            string message = GameManager.Instance.GetMessage();
+            if (!string.IsNullOrEmpty(message))
+            {
+                feedbackText.text = message;
+            }
+        }
+            
+
+
         foreach (var menuButton in genericButtons)
         {
             if (menuButton.button != null && menuButton.animator != null)

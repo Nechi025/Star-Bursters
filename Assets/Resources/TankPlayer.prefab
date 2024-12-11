@@ -392,7 +392,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2662634125523502939}
+  m_Father: {fileID: 6463710460940958744}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6169644000360416150
 SpriteRenderer:
@@ -547,7 +547,6 @@ GameObject:
   - component: {fileID: 3716812781248398578}
   - component: {fileID: -1535544973752275508}
   - component: {fileID: -723706301616462421}
-  - component: {fileID: -7272924601322934252}
   m_Layer: 0
   m_Name: TankPlayer
   m_TagString: Player
@@ -570,6 +569,7 @@ Transform:
   m_Children:
   - {fileID: 5749717238786890361}
   - {fileID: 2662634125523502939}
+  - {fileID: 6504304036800504399}
   - {fileID: 1444858350360216285}
   - {fileID: 2063928352832110976}
   m_Father: {fileID: 0}
@@ -687,7 +687,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.000000059604645}
+  m_Offset: {x: 0, y: -0.008196279}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -698,35 +698,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.9615972}
+  m_Size: {x: 1, y: 0.94520473}
   m_EdgeRadius: 0
---- !u!50 &-7272924601322934252
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1748950973513389782}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &2860615472639749124
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2662634125523502939}
   - component: {fileID: 8509029905113281564}
+  - component: {fileID: 6212166327421150939}
   m_Layer: 0
   m_Name: TankSprite
   m_TagString: Untagged
@@ -913,7 +887,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6504304036800504399}
   - {fileID: 2796062904705711577}
   - {fileID: 1912836564650357914}
   m_Father: {fileID: 6463710460940958744}
@@ -970,6 +943,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &6212166327421150939
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3963292408140493090}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4435264262794372781
 GameObject:
   m_ObjectHideFlags: 0

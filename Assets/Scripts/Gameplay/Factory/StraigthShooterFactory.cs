@@ -10,7 +10,7 @@ public class StraightShooterFactory : MonoBehaviour, IEnemyFactory
 
     public Enemy CreateEnemy()
     {
-        GameObject enemyInstance = PhotonNetwork.Instantiate(enemyPrefab.name, new Vector2(Random.Range(-4, 4), Random.Range(2, 4)), Quaternion.identity);
+        GameObject enemyInstance = PhotonNetwork.InstantiateRoomObject(enemyPrefab.name, new Vector2(Random.Range(-4, 4), Random.Range(2, 4)), Quaternion.identity);
         return enemyInstance.GetComponent<Enemy>();
     }
 }
