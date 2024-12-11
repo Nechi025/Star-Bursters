@@ -2,6 +2,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class MenuUI : MonoBehaviourPunCallbacks
 {
@@ -70,4 +71,77 @@ public class MenuUI : MonoBehaviourPunCallbacks
         }
     }
 
+
+
+
+
+    [System.Serializable]
+    public class MenuButton
+    {
+        public Button button;
+        public Animator animator;
+        public string animationTrigger = "Pressed";
+    }
+
+    [Header("Generic Buttons")]
+    [SerializeField] private List<MenuButton> genericButtons;
+
+    [Header("Special Buttons")]
+    [SerializeField] private Button exitButton;
+
+    private void Start()
+    {
+        foreach (var menuButton in genericButtons)
+        {
+            if (menuButton.button != null && menuButton.animator != null)
+            {
+                menuButton.button.onClick.AddListener(() => HandleGenericButtonPress(menuButton));
+            }
+            else
+            {
+                Debug.LogWarning("Button or Animator is null in generic buttons list!");
+            }
+        }
+
+        if (exitButton != null)
+        {
+            exitButton.onClick.AddListener(HandleExitButtonPress);
+        }
+        else
+        {
+            Debug.LogWarning("Exit button is not assigned!");
+        }
+    }
+
+    private void HandleGenericButtonPress(MenuButton menuButton)
+    {
+        menuButton.animator.SetTrigger(menuButton.animationTrigger);
+        Debug.Log($"Button pressed: {menuButton.button.name}");
+    }
+
+    private void HandleExitButtonPress()
+    {
+
+        Debug.Log("Closing Game (In Editor)");
+
+        Application.Quit();
+
+    }
+
+    public void AddGenericButton(Button button, Animator animator, string animationTrigger = "Pressed")
+    {
+        genericButtons.Add(new MenuButton
+        {
+            button = button,
+            animator = animator,
+            animationTrigger = animationTrigger
+        });
+
+        button.onClick.AddListener(() => HandleGenericButtonPress(genericButtons[genericButtons.Count - 1]));
+    }
+
+    public void RemoveGenericButton(Button button)
+    {
+        genericButtons.RemoveAll(mb => mb.button == button);
+    }
 }
