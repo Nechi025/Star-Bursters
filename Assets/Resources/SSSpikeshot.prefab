@@ -204,6 +204,7 @@ MonoBehaviour:
   speed: 0
   isEnemy: 1
   PathPoints: []
+  maxLifetime: 15
 --- !u!50 &4626748744117603286
 Rigidbody2D:
   serializedVersion: 4
@@ -420,6 +421,7 @@ MonoBehaviour:
   speed: 0
   isEnemy: 1
   PathPoints: []
+  maxLifetime: 15
 --- !u!50 &2522179129967711752
 Rigidbody2D:
   serializedVersion: 4
@@ -679,6 +681,7 @@ MonoBehaviour:
   speed: 0
   isEnemy: 1
   PathPoints: []
+  maxLifetime: 5
 --- !u!61 &6904340560896944945
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1064,6 +1067,7 @@ MonoBehaviour:
   isEnemy: 1
   PathPoints:
   - {fileID: 8422957447153036183}
+  maxLifetime: 15
 --- !u!61 &3156945541651278608
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1264,6 +1268,7 @@ MonoBehaviour:
   speed: 0
   isEnemy: 1
   PathPoints: []
+  maxLifetime: 15
 --- !u!50 &2203235674186653802
 Rigidbody2D:
   serializedVersion: 4
@@ -1480,6 +1485,7 @@ MonoBehaviour:
   speed: 0
   isEnemy: 1
   PathPoints: []
+  maxLifetime: 15
 --- !u!50 &8927166273629780336
 Rigidbody2D:
   serializedVersion: 4

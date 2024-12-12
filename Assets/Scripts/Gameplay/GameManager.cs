@@ -2,6 +2,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public string Message;
     private PhotonView pv;
 
+    [SerializeField] private GameObject ScoreScreen;
     public int playersAlive;
 
     private void Awake()
@@ -72,9 +74,10 @@ public class GameManager : MonoBehaviourPunCallbacks
    {
        PhotonNetwork.LeaveRoom();
        SceneManager.LoadScene("MainMenu");
-       //UIManager.Instance.ShowDefeatScreen();
-       //StartCoroutine(GoToMenuAfterDelay(3f));
-   }
+        ScoreScreen.SetActive(true);
+        //UIManager.Instance.ShowDefeatScreen();
+        //StartCoroutine(GoToMenuAfterDelay(3f));
+    }
 
    
     }

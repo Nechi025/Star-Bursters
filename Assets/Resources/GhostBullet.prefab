@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3255807697216314651}
   - component: {fileID: 8935917786532049962}
-  - component: {fileID: 4232508172308764363}
   - component: {fileID: -4620403247260831513}
   - component: {fileID: -3600225983105212981}
   - component: {fileID: -2872155932174118448}
   - component: {fileID: -1113992680528562221}
   - component: {fileID: 6921054199245968983}
+  - component: {fileID: 7722804761886567492}
   m_Layer: 0
   m_Name: GhostBullet
   m_TagString: Untagged
@@ -91,23 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4232508172308764363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249059224992463417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baf5698142223cd4fa15d1b676d26abf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
-  speed: 10
-  isEnemy: 0
-  PathPoints:
-  - {fileID: 4762717998756598045}
 --- !u!114 &-4620403247260831513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +305,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7722804761886567492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249059224992463417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dafc53b395f02b4db663fea9836cab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  speed: 8
+  isEnemy: 0
+  PathPoints:
+  - {fileID: 4762717998756598045}
+  maxLifetime: 15
 --- !u!1 &6454720507197987802
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +350,7 @@ Transform:
   m_GameObject: {fileID: 6454720507197987802}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.52, z: 0}
+  m_LocalPosition: {x: 0, y: 0.79999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

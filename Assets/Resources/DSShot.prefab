@@ -112,6 +112,7 @@ MonoBehaviour:
   isEnemy: 1
   PathPoints:
   - {fileID: 8352400527617697944}
+  maxLifetime: 15
 --- !u!212 &1173757558120795222
 SpriteRenderer:
   m_ObjectHideFlags: 0

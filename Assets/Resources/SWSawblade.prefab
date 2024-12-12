@@ -428,6 +428,7 @@ MonoBehaviour:
   isEnemy: 1
   PathPoints:
   - {fileID: 8422957447153036183}
+  maxLifetime: 15
 --- !u!50 &2896691397605435126
 Rigidbody2D:
   serializedVersion: 4
