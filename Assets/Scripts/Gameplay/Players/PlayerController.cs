@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour, IHealable
 
     [SerializeField] private Animator animator;
 
+    //Recon
+    public bool isRecon = false;
+    public ReconLaser laser;
 
     public bool isDead = false;
 
@@ -58,6 +61,7 @@ public class PlayerController : MonoBehaviour, IHealable
         if (Health <= 0)
         {
             isDead = true;
+            GameManager.Instance.PlayerDied();
         }
         else
         {
@@ -83,11 +87,23 @@ public class PlayerController : MonoBehaviour, IHealable
         {
             transform.position += Vector3.right * 5 * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.Space) && Time.time >= timeNextShoot)
+        if (!isRecon)
         {
-            Shoot();
-            timeNextShoot = Time.time + attackCooldown;
+            if (Input.GetKey(KeyCode.Space) && Time.time >= timeNextShoot)
+            {
+                Shoot();
+                timeNextShoot = Time.time + attackCooldown;
+            }
         }
+        else if (Input.GetKey(KeyCode.Space))
+        {
+            Laser();
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            laser.TurnOffLaser();
+        }
+
         if (Input.GetKeyDown(KeyCode.E) && cdAbilitie <= 0f)
         {
             pv.RPC("UseAbilitie", RpcTarget.All);
@@ -128,6 +144,11 @@ public class PlayerController : MonoBehaviour, IHealable
         {
             PhotonNetwork.Instantiate(bullet.name, point.position, point.rotation);
         }
+    }
+
+    public void Laser()
+    {
+        laser.ShootLaser(transform);
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)

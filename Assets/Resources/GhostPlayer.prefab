@@ -896,6 +896,8 @@ MonoBehaviour:
   abilitieDuration: 10
   healthBar: {fileID: 2589139043554195035}
   animator: {fileID: 3163044099896204594}
+  isRecon: 0
+  laser: {fileID: 0}
   isDead: 0
 --- !u!61 &-1542010604743445940
 BoxCollider2D:

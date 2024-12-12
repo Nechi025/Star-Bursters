@@ -98,13 +98,14 @@ public class PlayerSelect : MonoBehaviour
     [PunRPC]
     private void BeginGame()
     {
-        playerSelectCanvas.SetActive(false);
-
         // Hace el spawn de los personajes seleccionados
         if (selectedCharacters.TryGetValue(PhotonNetwork.LocalPlayer.ActorNumber, out characters selectedCharacter))
         {
             PlayerSpawn playerSpawn = FindObjectOfType<PlayerSpawn>();
             playerSpawn.SpawnCharacter(selectedCharacter);
+            GameManager.Instance.InitializeGame();
         }
+
+        playerSelectCanvas.SetActive(false);
     }
 }
