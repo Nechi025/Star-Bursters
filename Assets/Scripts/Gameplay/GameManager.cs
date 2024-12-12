@@ -40,32 +40,36 @@ public class GameManager : MonoBehaviourPunCallbacks
         playersAlive = PhotonNetwork.CurrentRoom.PlayerCount;
         Debug.Log($"Jugadores vivos inicializados: {playersAlive}");
     }
-
+   
     public void PlayerDied()
     {
         //if (!PhotonNetwork.IsMasterClient) return;
 
         playersAlive--;
 
-        if (playersAlive <= 0)
-        {
-            TriggerDefeat();
-        }
+        /*if (playersAlive <= 0)
+       {
+           TriggerDefeat();
+       }
+        */
     }
 
     // Sincronizar la derrota con todos los jugadores
     [PunRPC]
-    private void TriggerDefeat()
-    {
-        pv.RPC("HandleDefeat", RpcTarget.All);
+   private void TriggerDefeat()
+   {
+       pv.RPC("HandleDefeat", RpcTarget.All);
+   }
+
+   [PunRPC]
+   private void HandleDefeat()
+   {
+       PhotonNetwork.LeaveRoom();
+       SceneManager.LoadScene("MainMenu");
+       //UIManager.Instance.ShowDefeatScreen();
+       //StartCoroutine(GoToMenuAfterDelay(3f));
+   }
+
+   
     }
 
-    [PunRPC]
-    private void HandleDefeat()
-    {
-        PhotonNetwork.LeaveRoom();
-        SceneManager.LoadScene("MainMenu");
-        //UIManager.Instance.ShowDefeatScreen();
-        //StartCoroutine(GoToMenuAfterDelay(3f));
-    }
-}

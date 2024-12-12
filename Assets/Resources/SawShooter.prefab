@@ -530,6 +530,7 @@ MonoBehaviour:
   AttackAmount: 5
   RotationSpeed: 20
   ScoreValue: 10
+  enemyBody: {fileID: 9222217600572882341}
   BulletPrefab: {fileID: 5621938644423850630, guid: a5c59a6e053ad4b4b922ce8d54cb2bf4, type: 3}
 --- !u!50 &2329108770108110079
 Rigidbody2D:

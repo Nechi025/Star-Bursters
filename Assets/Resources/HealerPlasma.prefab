@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798fcaf7f0ab89045b52d9e2af715bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healingAmount: 20
+  healingAmount: 10
 --- !u!82 &7910346891434451859
 AudioSource:
   m_ObjectHideFlags: 0

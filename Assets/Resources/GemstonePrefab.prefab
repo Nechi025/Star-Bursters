@@ -908,8 +908,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 300
   Speed: 0.5
-  AttackSpeed: 0.4
-  AttackInterval: 5
+  AttackSpeed: 0.8
+  AttackInterval: 15
   PathPoints:
   - {fileID: 3844419547441292556}
   - {fileID: 8260561822754113626}
@@ -921,6 +921,7 @@ MonoBehaviour:
   AttackAmount: 10
   RotationSpeed: 20
   ScoreValue: 50
+  enemyBody: {fileID: 9222217600572882341}
   BulletPrefab: {fileID: 5621938644423850630, guid: 9c7fe53cb2ba48648b7120e1769d0185, type: 3}
 --- !u!50 &2329108770108110079
 Rigidbody2D:

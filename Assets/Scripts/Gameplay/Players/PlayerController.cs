@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour, IHealable
     [SerializeField] Slider healthBar;
 
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject reviveZone;
+    [SerializeField] private Slider reviveProgressSlider;
+
 
     //Recon
     public bool isRecon = false;
@@ -164,11 +167,11 @@ public class PlayerController : MonoBehaviour, IHealable
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        PlayerController deadPlayer = collision.GetComponent<PlayerController>();
+        PlayerController reviver = collision.GetComponent<PlayerController>();
 
-        if (deadPlayer != null && deadPlayer.isDead == true && deadPlayer != this)
+        if (reviver != null && reviver.isDead == false && isDead == true)
         {
-            StartCoroutine(ReviveProcess(deadPlayer));
+            StartCoroutine(ReviveProcess(reviver));
         }
     }
 
@@ -204,30 +207,69 @@ public class PlayerController : MonoBehaviour, IHealable
         }
     }
 
+
+
+
     private IEnumerator ReviveProcess(PlayerController reviver)
     {
-        //isBeingRevived = true;
-        float timer = 0f;
-
-        Debug.Log("Iniciando proceso de revivir...");
-
-        while (timer < 3)
+        // Debug Revivir
+        if (reviveZone == null || reviveProgressSlider == null)
         {
-            if (Vector2.Distance(reviver.transform.position, this.transform.position) > 1.5f) // Si el jugador se aleja
+            Debug.LogError("Sin zona o Slider");
+            yield break;
+        }
+
+        // Activar zona de revivir
+        reviveZone.transform.position = this.transform.position;
+        reviveZone.SetActive(true);
+
+        // Reseteo de progreso
+        reviveProgressSlider.value = 0f;
+
+        float timer = 0f;
+        Debug.Log("Reviviendo...");
+
+        while (timer < 3f) // Segybdis para revivir
+        {
+            // Jugador cercano para revivir
+            if (!reviveZone.GetComponent<Collider2D>().bounds.Contains(reviver.transform.position))
             {
-                Debug.Log("Revival interrumpido.");
-                //isBeingRevived = false;
-                yield break;
+                Debug.Log("Revivir Interrumpido.");
+                yield return null;
+                continue; 
             }
+
+            // Actualiza Slider
+            reviveProgressSlider.value = timer / 3f;
 
             timer += Time.deltaTime;
             yield return null;
         }
 
-        reviver.Health = 50;
-        Debug.Log("Jugador revivio");
-        //isBeingRevived = false;
+        // Revivido
+        if (pv.IsMine)
+        {
+            pv.RPC("RevivePlayer", RpcTarget.All);
+        }
+
+        Debug.Log("Revivido.");
+        reviveZone.SetActive(false);
     }
+
+
+
+    [PunRPC]
+    private void RevivePlayer()
+    {
+        Health = maxHealth / 2; // 50% de vida segun jugador
+        isDead = false;
+
+        UpdateHealthBar(); // Actu
+        Debug.Log("Revived player health: " + Health);
+    }
+
+
+
 
     public void Heal(int amount)
     {
@@ -239,3 +281,5 @@ public class PlayerController : MonoBehaviour, IHealable
         }
     }
 }
+
+

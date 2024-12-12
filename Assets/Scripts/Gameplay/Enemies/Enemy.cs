@@ -17,6 +17,9 @@ public abstract class Enemy : MonoBehaviour
     private bool isAttacking;
     public float RotationSpeed = 180f;
     public int ScoreValue;
+    public GameObject enemyBody;
+
+
     protected virtual void Update()
     {
         MoveAlongPath();
@@ -37,8 +40,8 @@ public abstract class Enemy : MonoBehaviour
             {
                 ScoreManager.Instance.AddScore(ScoreValue);
             }
-
-            Destroy(this.gameObject);
+            Destroy(enemyBody);
+           
         }
     }
 
