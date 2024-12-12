@@ -72,13 +72,9 @@ public class GameManager : MonoBehaviourPunCallbacks
    [PunRPC]
    private void HandleDefeat()
    {
-       PhotonNetwork.LeaveRoom();
-       SceneManager.LoadScene("MainMenu");
         ScoreScreen.SetActive(true);
-        //UIManager.Instance.ShowDefeatScreen();
-        //StartCoroutine(GoToMenuAfterDelay(3f));
-    }
+   }
 
    
-    }
+}
 

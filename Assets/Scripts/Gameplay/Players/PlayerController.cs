@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour, IHealable
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject reviveZone;
     [SerializeField] private Slider reviveProgressSlider;
-
+    //public AudioSource audioSource;
 
     //Recon
     public bool isRecon = false;
@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour, IHealable
         }
         else if (Input.GetKey(KeyCode.Space))
         {
+            
             Laser();
         }
         if (Input.GetKeyUp(KeyCode.Space))
@@ -141,6 +142,10 @@ public class PlayerController : MonoBehaviour, IHealable
     public void Laser()
     {
         laser.ShootLaser(transform);
+        /*if (audioSource != null)
+        {
+            audioSource.Play();
+        }*/
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)

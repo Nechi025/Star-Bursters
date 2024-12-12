@@ -17,10 +17,7 @@ public class ScoreManager : MonoBehaviourPun
         {
             Instance = this;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+     
     }
 
     private void Start()
