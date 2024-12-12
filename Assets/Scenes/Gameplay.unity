@@ -314,9 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'xxxxx
-
-'
+  m_text: xxxx
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95d3930123bb24f41b84e90cde4370ae, type: 2}
   m_sharedMaterial: {fileID: -7132933724739810909, guid: 95d3930123bb24f41b84e90cde4370ae, type: 2}
@@ -350,7 +348,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -379,7 +377,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 11.371706, z: 56.47303, w: 12.72088}
+  m_margin: {x: -12.738621, y: 11.371706, z: 56.47303, w: 12.72088}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3365,6 +3363,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSelectCanvas: {fileID: 1345649994}
   spawner: {fileID: 1343162088}
+  lobbyPlayers: {fileID: 1708926206}
+  lobbyCode: {fileID: 71557188}
 --- !u!114 &1035124054
 MonoBehaviour:
   m_ObjectHideFlags: 0

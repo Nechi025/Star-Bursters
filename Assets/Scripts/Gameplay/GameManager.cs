@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -46,12 +45,19 @@ public class GameManager : MonoBehaviourPunCallbacks
         //if (!PhotonNetwork.IsMasterClient) return;
 
         playersAlive--;
+        Debug.Log(playersAlive);
 
-        /*if (playersAlive <= 0)
+        if (playersAlive <= 0)
        {
            TriggerDefeat();
        }
-        */
+        
+    }
+
+    public void PlayerRevived()
+    {
+        playersAlive++;
+        Debug.Log(playersAlive);
     }
 
     // Sincronizar la derrota con todos los jugadores

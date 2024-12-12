@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 4074165224976101894}
   - component: {fileID: 2329108770108110079}
   - component: {fileID: 7995493161298610579}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LineShooter
   m_TagString: Enemy
   m_Icon: {fileID: 0}

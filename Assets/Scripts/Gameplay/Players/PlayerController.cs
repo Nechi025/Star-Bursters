@@ -60,16 +60,6 @@ public class PlayerController : MonoBehaviour, IHealable
                 UpdateHealthBar();
             }
         }
-
-        if (Health <= 0)
-        {
-            isDead = true;
-            GameManager.Instance.PlayerDied();
-        }
-        else
-        {
-            isDead = false;
-        }
     }
 
     private void HandleInput()
@@ -122,7 +112,6 @@ public class PlayerController : MonoBehaviour, IHealable
 
 
     
-
     private void UpdateHealthBar()
     {
         if (healthBar != null)
@@ -182,6 +171,12 @@ public class PlayerController : MonoBehaviour, IHealable
             Health -= damage;
             pv.RPC("SyncHealth", RpcTarget.All, Health);
         }
+
+        if (Health <= 0)
+        {
+            isDead = true;
+            GameManager.Instance.PlayerDied();
+        }
     }
 
     [PunRPC]
@@ -229,7 +224,7 @@ public class PlayerController : MonoBehaviour, IHealable
         float timer = 0f;
         Debug.Log("Reviviendo...");
 
-        while (timer < 3f) // Segybdis para revivir
+        while (timer < 3f)
         {
             // Jugador cercano para revivir
             if (!reviveZone.GetComponent<Collider2D>().bounds.Contains(reviver.transform.position))
@@ -254,6 +249,7 @@ public class PlayerController : MonoBehaviour, IHealable
 
         Debug.Log("Revivido.");
         reviveZone.SetActive(false);
+        GameManager.Instance.PlayerRevived();
     }
 
 
@@ -264,7 +260,7 @@ public class PlayerController : MonoBehaviour, IHealable
         Health = maxHealth / 2; // 50% de vida segun jugador
         isDead = false;
 
-        UpdateHealthBar(); // Actu
+        UpdateHealthBar();
         Debug.Log("Revived player health: " + Health);
     }
 

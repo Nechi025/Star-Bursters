@@ -2,17 +2,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using Photon.Realtime;
 
-public class PlayerSelect : MonoBehaviour
+public class PlayerSelect : MonoBehaviourPunCallbacks
 {
     private Dictionary<int, characters> selectedCharacters = new Dictionary<int, characters>(); //ID del jugador y su selección
     private PhotonView pv;
     [SerializeField] GameObject playerSelectCanvas;
     [SerializeField] EnemySpawner spawner;
+    public TMPro.TextMeshProUGUI lobbyPlayers;
+    public TMPro.TextMeshProUGUI lobbyCode;
 
     private void Awake()
     {
         pv = GetComponent<PhotonView>();
+    }
+
+    private void Update()
+    {
+        int playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+        lobbyPlayers.text = $"{playerCount}";
+
+        string roomName = PhotonNetwork.CurrentRoom.Name;
+        lobbyCode.text = $"{roomName}";
     }
 
     public void Ghost()
